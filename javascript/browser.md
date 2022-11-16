@@ -35,3 +35,21 @@ const scrollToTop = () => {
   }
 }
 ```
+
+- Check the preferred color scheme of the user
+
+```typescript
+const prefersDarkColorScheme = () =>
+  window &&
+  window.matchMedia &&
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
+```
+
+- Smooth-scroll elements into view
+
+```typescript
+const smoothScroll = (selector: string) =>
+  document
+    .querySelector(selector)
+    .scrollIntoView({ behavior: 'smooth' });
+```
