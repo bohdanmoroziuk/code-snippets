@@ -53,3 +53,15 @@ const smoothScroll = (selector: string) =>
     .querySelector(selector)
     .scrollIntoView({ behavior: 'smooth' });
 ```
+
+- Check if the current tab is in view/focus
+
+```typescript
+const isTabInView = () => document.hidden;
+```
+
+- Check if an element is currently in focus
+
+```typescript
+const isElementInFocus = (element: Element) => element === document.activeElement;
+```

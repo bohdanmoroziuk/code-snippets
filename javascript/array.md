@@ -17,3 +17,9 @@ const sample = <T>(list: T[]): T => list[(Math.random() * list.length) | 0];
 ```typescript
 const unique = (list: unknown[]) => [...new Set(list)];
 ```
+
+- Remove falsy values from array
+
+```typescript
+const removeFalsy = (list: unknown[]) => list.filter(Boolean);
+```
