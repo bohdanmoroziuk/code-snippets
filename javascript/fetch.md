@@ -29,9 +29,15 @@ export const retry = (fn: Fetcher, retriesLeft = 5, interval = 1000) => {
 ```typescript
 type Fetcher = () => Promise<Response>;
 
+const checkStatus = (response: Response) => {
+  if (response.ok) return response;
+  throw new Error(response.status.toString());
+};
+
 export const retry = (fn: Fetcher, retriesLeft = 5, interval = 1000) => {
   return new Promise((resolve, reject) => {
     fn()
+      .then(checkStatus)
       .then(resolve)
       .catch((error) => {
         if (retriesLeft > 0) {
