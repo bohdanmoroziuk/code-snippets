@@ -15,6 +15,18 @@ const once = (fn: Function) => {
 };
 ```
 
+## Splat
+
+```typescript
+const splat = <T extends Array<unknown>, R = unknown>(fn: (...args: T) => R): (args: T) => R => (args) => fn(...args);
+```
+
+## Unsplat
+
+```typescript
+const unsplat = <T extends Array<unknown>, R = unknown>(fn: (args: T) => R): (...args: T) => R => (...args) => fn(args);
+```
+
 - Memoize a function
 
 ```typescript
