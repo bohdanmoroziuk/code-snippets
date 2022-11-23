@@ -23,3 +23,17 @@ const unique = (list: unknown[]) => [...new Set(list)];
 ```typescript
 const removeFalsy = (list: unknown[]) => list.filter(Boolean);
 ```
+
+## safeSort
+
+```typescript
+const safeSort = <T>(list: T[], comparator: (a: T, b: T) => number) => list.slice().sort(comparator);
+```
+
+## nth
+
+```typescript
+type Indexed = string | unknown[];
+
+const nth = <T extends Indexed>(source: T, index: number): T[number] => source[index];
+```
