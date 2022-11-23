@@ -45,3 +45,12 @@
   opacity: 0.6;
 }
 ```
+
+## Night mode
+
+```css
+.night-mode {
+  background-color: #fff;
+  filter: invert(1) hue-rotate(210deg);
+}
+```
