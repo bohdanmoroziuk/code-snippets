@@ -1,6 +1,6 @@
 # File
 
-- Download a file
+## downloadFile
 
 ```typescript
 const checkStatus = (response: Response) => {
@@ -31,4 +31,17 @@ const downloadFile = (url: string, fileName: string) => (
     .then(toBlob)
     .then(saveFile(fileName))
 );
+```
+
+## checkIsFileExist
+
+```typescript
+const checkIsFileExist = (file) => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('HEAD', file, false);
+  xhr.send();
+
+  return xhr.status !== 404;
+}
 ```
