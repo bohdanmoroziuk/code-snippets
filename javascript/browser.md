@@ -65,3 +65,25 @@ const isTabInView = () => document.hidden;
 ```typescript
 const isElementInFocus = (element: Element) => element === document.activeElement;
 ```
+
+## redirect
+
+Do a redirect to a specified URL
+
+```typescript
+const redirect = (url: string, asLink = true) => {
+  if (asLink) {
+    window.location.href = url;
+  } else {
+    window.location.replace(url);
+  }
+};
+```
+
+## refresh
+
+Refresh a website
+
+```typescript
+const refresh = () => window.location.reload();
+```
