@@ -18,10 +18,12 @@ const sample = <T>(list: T[]): T => list[(Math.random() * list.length) | 0];
 const unique = (list: unknown[]) => [...new Set(list)];
 ```
 
-- Remove falsy values from array
+## compact
+
+Remove false values from an array
 
 ```typescript
-const removeFalsy = (list: unknown[]) => list.filter(Boolean);
+const compact = (list: unknown[]) => list.filter(Boolean);
 ```
 
 ## safeSort
@@ -36,4 +38,12 @@ const safeSort = <T>(list: T[], comparator: (a: T, b: T) => number) => list.slic
 type Indexed = string | unknown[];
 
 const nth = <T extends Indexed>(source: T, index: number): T[number] => source[index];
+```
+
+## cast
+
+Convert a non-array value into array.
+
+```typescript
+const cast = (value: unknown) => Array.isArray(value) ? value : [value];
 ```
