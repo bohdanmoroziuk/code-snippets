@@ -1,6 +1,4 @@
-# Composables
-
-## useConfirm
+# useConfirm
 
 A custom composable to prompt confirmation before action
 
