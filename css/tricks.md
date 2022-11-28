@@ -54,3 +54,28 @@
   filter: invert(1) hue-rotate(210deg);
 }
 ```
+
+## Limit lines of text
+
+```css
+.cutoff-text {
+  --max-lines: 5;
+  --line-height: 1.5;
+
+  max-height: calc(var(--max-lines) * 1em * var(--line-height));
+  line-height: var(--line-height);
+
+  overflow: hidden;
+  position: relative;
+}
+
+.cutoff-text::before {
+  content: '';
+  position: absolute;
+  height: calc(1em * var(--line-height));
+  width: 100%;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, white);
+}
+```
