@@ -109,3 +109,15 @@ const memoize = (fn: Function, cacheCapacity: number) => {
   };
 };
 ```
+
+## attempt
+
+```typescript
+const attempt = (fn: (...args: unknown[]) => unknown) => (...args: unknown[]) => {
+  try {
+    return fn(...args);
+  } catch (error) {
+    return error instanceof Error ? error : new Error(error);
+  }
+};
+```

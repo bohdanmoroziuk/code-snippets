@@ -14,3 +14,13 @@ const checkIsPlainObject = (value: unknown): value is Record<string, any> =>
 const trueType = (value: unknown) => 
   Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 ```
+
+## isNil
+
+Check whether a value is `null` or `undefined`
+
+```typescript
+type Nil = undefined | null;
+
+const isNil = (value: unknown): value is Nil => value === undefined || value === null;
+```
