@@ -1,3 +1,4 @@
 # Patterns
 
-- [Renderless component](./renderless-component.md)
+- [Renderless Component](./renderless-component.md)
+- [State Provider](./state-provider/readme.md)
