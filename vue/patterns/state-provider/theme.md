@@ -41,7 +41,7 @@ export const useTheme = () => {
 
   if (value) return value;
 
-  throw new Error('useTheme requires useThemeProvider in parent');
+  throw new Error('useTheme requires useThemeProvider/ThemeProvider in parent');
 };
 
 export const ThemeProvider = defineComponent({
@@ -101,7 +101,7 @@ useThemeProvider(false);
   </div>
 </template>
 
-// renderless component
+// as renderless component
 
 <script setup lang="ts">
 import { ThemeProvider } from '@/context/theme';
