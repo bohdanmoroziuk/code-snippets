@@ -1,6 +1,4 @@
-# Tips & Tricks
-
-## Check all checkboxes
+# selectAll
 
 ```typescript
 const selectAll = computed({
