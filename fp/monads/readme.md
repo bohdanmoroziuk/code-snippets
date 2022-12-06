@@ -1,0 +1,3 @@
+# Monads
+
+- [Result](./result.md)
