@@ -87,3 +87,23 @@ Refresh a website
 ```typescript
 const refresh = () => window.location.reload();
 ```
+
+## getMyCoordinates
+
+```typescript
+interface Coordinates {
+  latitude: number;
+  longitude: number;
+}
+
+const getMyCoordinates = (): Promise<Coordinates> => (
+  new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => resolve({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      }),
+      reject,
+    );
+  }));
+```
