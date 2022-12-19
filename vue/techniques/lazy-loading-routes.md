@@ -1,5 +1,7 @@
 # Lazy loading routes
 
+Always lazily load your route components.
+
 ## Helpers
 
 ```typescript
