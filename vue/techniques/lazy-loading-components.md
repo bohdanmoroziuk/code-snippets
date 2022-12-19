@@ -1,5 +1,7 @@
 # Lazy loading components
 
+Lazily load components that are needed only under a certain condition.
+
 [SafeSuspense](../components/safe-suspense.md)
 
 ## Async components
