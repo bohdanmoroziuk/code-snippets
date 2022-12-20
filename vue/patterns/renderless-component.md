@@ -112,6 +112,94 @@ export default defineComponent({
 
 ## Example 2: UseTagsInput
 
+```typescript
+// src/components/UseTagsInput.vue
+
+<script setup lang="ts">
+import { ref, defineProps, defineEmits } from 'vue';
+
+type Tag = string;
+
+interface Props {
+  modelValue: Tag[];
+}
+
+interface Emits {
+  (event: 'update:modelValue', payload: Tag[]): void;
+}
+
+const props = defineProps<Props>();
+
+const emit = defineEmits<Emits>();
+
+const tag = ref<Tag>('');
+
+const inputTag = (event: Event) => {
+  tag.value = (event.target as HTMLInputElement).value;
+};
+
+const addTag = () => {
+  if (tag.value.trim().length === 0) return;
+
+  if (props.modelValue.includes(tag.value)) return;
+
+  const tags = [tag.value, ...props.modelValue];
+
+  emit('update:modelValue', tags);
+
+  tag.value = '';
+};
+
+const removeTag = (tag: Tag) => {
+  const tags = props.modelValue.filter((item) => item !== tag);
+
+  emit('update:modelValue', tags);
+};
+</script>
+
+<template>
+  <slot
+    :tags="props.modelValue"
+    :tag="tag"
+    :input-tag="inputTag"
+    :add-tag="addTag"
+    :remove-tag="removeTag"
+  />
+</template>
+```
+
+```typescript
+// src/App.vue
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+import UseTagsInput from '@/components/UseTagsInput.vue';
+
+const tags = ref<string[]>(['vue', 'react', 'angular']);
+</script>
+
+<template>
+  <div class="about">
+    <use-tags-input v-model="tags">
+      <template #default="{ tag, tags, inputTag, addTag, removeTag }">
+        <input
+          :value="tag"
+          @input="inputTag"
+          @keypress.enter.prevent="addTag"
+        />
+        <ul>
+          <li v-for="tag of tags" :key="tag">
+            <p>{{ tag }}</p>
+            <button @click="removeTag(tag)">x</button>
+          </li>
+        </ul>
+      </template>
+    </use-tags-input>
+  </div>
+</template>
+```
+
 ## Sources
 
 - [Renderless Components in Vue.js](https://adamwathan.me/renderless-components-in-vuejs/)
