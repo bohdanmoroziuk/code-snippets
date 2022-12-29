@@ -1,6 +1,12 @@
 # Lazy loading components
 
-Lazily load components that are needed only under a certain condition.
+## Which components should you load lazily?
+
+The answer to this question is trivial and intuitive - everything that is not required on initial render.
+
+This usually means everything that the user doesn’t see until he/she interacts with our app in some way.
+One of the most common examples are components that we usually conditionally hide with `v-if` directives
+like modal windows or sidebars. Those components are usually good candidates to be loaded lazily.
 
 [SafeSuspense](../components/safe-suspense.md)
 
