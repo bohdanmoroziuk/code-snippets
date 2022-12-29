@@ -1,5 +1,6 @@
 # Vue
 
+- [Styleguide](./styleguide/readme.md)
 - [Tips & Tricks](./tricks.md)
 - [Components](./components/readme.md)
 - [Composables](./composables/readme.md)
@@ -7,6 +8,11 @@
 - [Techniques](./techniques/readme.md)
 
 ---
+
+- Styleguide
+
+  - [Style Guide](https://vuejs.org/style-guide/)
+  - [Vue.js Component Style Guide](https://github.com/pablohpsilva/vuejs-component-style-guide)
 
 - Project setup
 - Project structure
