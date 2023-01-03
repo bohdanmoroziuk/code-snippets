@@ -1,5 +1,6 @@
 # Vue
 
+- [Project setup](./project-setup/readme.md)
 - [Styleguide](./styleguide/readme.md)
 - [Tips & Tricks](./tricks.md)
 - [Components](./components/readme.md)
@@ -15,6 +16,9 @@
   - [Vue.js Component Style Guide](https://github.com/pablohpsilva/vuejs-component-style-guide)
 
 - Project setup
+
+- [Vue 3 as the New Default](https://blog.vuejs.org/posts/vue-3-as-the-new-default.html)
+
 - Project structure
 
   - [How to Create Scalable Frontend architecture](https://medium.com/@mukuljainx/how-to-create-scalable-frontend-architecture-e05287cd9eda)
@@ -61,3 +65,4 @@
   - [Storing and Using Last Visited Page in Vue JS](https://insight.heybooster.ai/storing-and-using-last-visited-page-in-vue-js/)
   - [Storing and Using the Last Known Route in Vue](https://css-tricks.com/storing-and-using-the-last-known-route-in-vue/)
   - [Go async in Vue 3 with Suspense](https://vuedose.tips/go-async-in-vue-3-with-suspense)
+  - [How to dynamically change the page title with Vue and Vue Router](https://medium.com/js-dojo/how-to-dynamically-change-the-page-title-with-vue-and-vue-router-99904906ce45)
