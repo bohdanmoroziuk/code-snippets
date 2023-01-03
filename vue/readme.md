@@ -1,6 +1,7 @@
 # Vue
 
 - [Project setup](./project-setup/readme.md)
+- [Project structure](./project-structure/readme.md)
 - [Styleguide](./styleguide/readme.md)
 - [Tips & Tricks](./tricks.md)
 - [Components](./components/readme.md)
