@@ -8,6 +8,8 @@ representation (list, stack, tree, etc.).
 
 ## Structure
 
+![Iterator pattern structure](https://refactoring.guru/images/patterns/diagrams/iterator/structure.png)
+
 1. The **Iterator** interface declares the operations required for traversing
 a collection.
 2. **Concrete Iterators** implement specific algorithms for traversing
@@ -52,7 +54,8 @@ interface Iterator<T> {
   hasNext(): boolean;
 }
 
-interface IterableCollection<T> {
+// Iterable
+interface Aggregator<T> {
   createIterator(): Iterator<T>;
 }
 
@@ -82,7 +85,7 @@ class ConcreteIterator implements Iterator<number> {
 }
 
 
-class ConcreteCollection implements IterableCollection<number> {
+class ConcreteCollection implements Aggregator<number> {
   private _collection: number[] = [];
 
   constructor(collection: number[]) {
@@ -165,6 +168,7 @@ let iteratorResult5 = frame.next(); // { done: true, value: null }
 
 ## Resources
 
+- [Iterator in TypeScript](https://refactoring.guru/design-patterns/iterator/typescript/example)
 - [Iterator Pattern in TypeScript](https://medium.com/design-patterns-in-typescript/iterator-pattern-in-typescript-9d16b0146804)
 - [Design patterns in TypeScript/Iterator](https://github.com/gztchan/design-patterns-in-typescript/blob/master/iterator/iterator.ts)
 - [Iterators](https://basarat.gitbook.io/typescript/future-javascript/iterators)
