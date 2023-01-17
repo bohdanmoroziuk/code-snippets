@@ -16,7 +16,7 @@ This design pattern is also known as Wrapper Design Pattern.
 3. Upon receiving a call, the adapter passes the request to the second object,
 but in a format and order that the second object expects.
 
-## Use
+## Applicability
 
 - When new components need to be integrated and work together with existing components in the application.
 - Parts of the program are rewritten with an improved interface, but the old code still expects the original interface.
@@ -217,3 +217,4 @@ const storage = process.env.NODE_ENV === 'production'
 - [Adapter Design Pattern Implementation in Typescript](https://levelup.gitconnected.com/adapter-design-pattern-implementation-in-typescript-a33f481b9aff)
 - [Adapter Pattern - Design Patterns com Typescript](https://meneguite.com/2019/06/20/design-patterns-com-typescript-adapter/)
 - [Adapter pattern](https://blog.logrocket.com/understanding-design-patterns-typescript-node-js/#adapter-pattern)
+- [Design Patterns: Adapter Pattern in TypeScript](https://javascript.plainenglish.io/design-patterns-adapter-pattern-in-typescript-4b7ad3c1c234)

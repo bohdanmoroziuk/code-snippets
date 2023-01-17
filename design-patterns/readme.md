@@ -1,9 +1,19 @@
 # Design patterns
 
-- Structural design patterns
+- Creational
 
-Structural design patterns are concerned with how classes and objects can be composed,
-to form larger structures.
+  - [Builder](./creational/builder.md)
+  - [Singleton](./creational/singleton.md)
+
+- Structural
+
+  - [Adapter](./structural/adapter.md)
+
+- Behavioral
+
+  - [Command](./behavioral/command.md)
+  - [Iterator](./behavioral/iterator.md)
+  - [Strategy](./behavioral/strategy.md)
 
 ## Resources
 
