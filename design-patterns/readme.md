@@ -15,6 +15,7 @@
   - [Command](./behavioral/command.md)
   - [Iterator](./behavioral/iterator.md)
   - [Strategy](./behavioral/strategy.md)
+  - [Memento](./behavioral/memento.md)
 
 ## Resources
 
