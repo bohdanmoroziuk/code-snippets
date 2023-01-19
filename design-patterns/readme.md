@@ -8,6 +8,7 @@
 - Structural
 
   - [Adapter](./structural/adapter.md)
+  - [Proxy](./structural/proxy.md)
 
 - Behavioral
 
