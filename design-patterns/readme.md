@@ -16,6 +16,7 @@
   - [Iterator](./behavioral/iterator.md)
   - [Strategy](./behavioral/strategy.md)
   - [Memento](./behavioral/memento.md)
+  - [State](./behavioral/state.md)
 
 - Refactorings
 
