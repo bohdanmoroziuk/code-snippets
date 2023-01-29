@@ -17,6 +17,10 @@
   - [Strategy](./behavioral/strategy.md)
   - [Memento](./behavioral/memento.md)
 
+- Refactorings
+
+  - [Null Object](./refactorings/null-object.md)
+
 ## Resources
 
 - [Refactoring.Guru](https://refactoring.guru/)
@@ -34,3 +38,5 @@
 - [Design Patterns](https://www.talkinghightech.com/en/design-patterns/)
 - [Design Patterns in Typescript](https://github.com/josemiguel-alvarez/design-patterns-typescript)
 - [9 Design Patterns Every Engineer Should Know](https://medium.com/frontend-canteen/9-design-patterns-every-engineer-should-know-f2423d36d468)
+- [Design Patterns in Java Tutorial](https://www.tutorialspoint.com/design_pattern/index.htm)
+- [Understanding Software Design Patterns: Series](https://www.carloscaballero.io/understanding-software-design-patterns-serie/)
