@@ -21,6 +21,7 @@
 - Refactorings
 
   - [Null Object](./refactorings/null-object.md)
+  - [Guard Clauses](./refactorings/guard-clauses.md)
 
 ## Resources
 
