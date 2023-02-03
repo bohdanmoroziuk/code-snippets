@@ -9,6 +9,7 @@
 
   - [Adapter](./structural/adapter.md)
   - [Proxy](./structural/proxy.md)
+  - [Bridge](./structural/bridge.md)
 
 - Behavioral
 
@@ -42,3 +43,4 @@
 - [9 Design Patterns Every Engineer Should Know](https://medium.com/frontend-canteen/9-design-patterns-every-engineer-should-know-f2423d36d468)
 - [Design Patterns in Java Tutorial](https://www.tutorialspoint.com/design_pattern/index.htm)
 - [Understanding Software Design Patterns: Series](https://www.carloscaballero.io/understanding-software-design-patterns-serie/)
+- [Creational Design Pattern in TypeScript](https://albertobasalo.medium.com/creational-patterns-in-typescript-fb5d57565b4e)
