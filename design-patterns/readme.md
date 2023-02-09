@@ -18,6 +18,7 @@
   - [Strategy](./behavioral/strategy.md)
   - [Memento](./behavioral/memento.md)
   - [State](./behavioral/state.md)
+  - [Visitor](./behavioral/visitor.md)
 
 - Refactorings
 
