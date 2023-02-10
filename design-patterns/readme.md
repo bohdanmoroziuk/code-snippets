@@ -10,6 +10,7 @@
   - [Adapter](./structural/adapter.md)
   - [Proxy](./structural/proxy.md)
   - [Bridge](./structural/bridge.md)
+  - [Facade](./structural/facade.md)
 
 - Behavioral
 
