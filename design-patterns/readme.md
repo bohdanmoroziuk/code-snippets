@@ -4,6 +4,7 @@
 
   - [Builder](./creational/builder.md)
   - [Singleton](./creational/singleton.md)
+  - [Prototype](./creational/prototype.md)
 
 - Structural
 
