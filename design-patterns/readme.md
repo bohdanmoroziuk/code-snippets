@@ -13,6 +13,7 @@
   - [Bridge](./structural/bridge.md)
   - [Facade](./structural/facade.md)
   - [Decorator](./structural/decorator.md)
+  - [Flyweight](./structural/flyweight.md)
 
 - Behavioral
 
