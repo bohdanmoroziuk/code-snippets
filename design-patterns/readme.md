@@ -24,6 +24,7 @@
   - [State](./behavioral/state.md)
   - [Visitor](./behavioral/visitor.md)
   - [Observer](./behavioral/observer.md)
+  - [Mediator](./behavioral/mediator.md)
 
 - Refactorings
 
