@@ -14,6 +14,7 @@
   - [Facade](./structural/facade.md)
   - [Decorator](./structural/decorator.md)
   - [Flyweight](./structural/flyweight.md)
+  - [Composite](./structural/composite.md)
 
 - Behavioral
 
