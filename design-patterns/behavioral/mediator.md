@@ -44,86 +44,88 @@ notification method instead of methods on other components.
 ## Example
 
 ```typescript
+interface Message {
+  content: string;
+}
+
 // Component
 
-interface Component<T> {
-  notify(message: T): void;
-  receive(message: T): void;
+interface Component {
+  name: string;
+  send(message: Message, receiver?: Component): void;
+  receive(message: Message, sender: Component): void;
 }
 
 // Mediator
 
-interface Mediator<T> {
-  notify(originator: Component<T>, message: T): void;
+interface Mediator {
+  notify(message: Message, sender: Component, receiver?: Component): void;
 }
 
 // Concrete component
 
-class ConcreteComponent implements Component<string> {
+class User implements Component {
   constructor(
-    private name: string,
-    private mediator: Mediator<string>,
+    readonly name: string,
+    private chatroom: Mediator,
   ) {}
 
-  notify(message: string): void {
-    console.log(`${this.name}: >>> Out >>> : ${message}`);
-
-    this.mediator.notify(this, message);
+  send(message: Message, receiver?: Component): void {
+    this.chatroom.notify(message, this, receiver);
   }
 
-  receive(message: string): void {
-    console.log(`${this.name}: <<< In <<< : ${message}`);
+  receive(message: Message, sender: Component): void {
+    console.log(`${sender.name} to ${this.name}: ${message.content}`);
   }
 }
 
 // Concrete mediator
 
-class ConcreteMediator implements Mediator<string> {
-  private components: Set<Component<string>> = new Set();
+class Chatroom implements Mediator {
+  private users: Set<Component> = new Set();
 
-  add(component: Component<string>) {
-    this.components.add(component);
+  public register(user: Component) {
+    this.users.add(user);
   }
 
-  notify(originator: Component<string>, message: string): void {
-    this.components.forEach((component) => {
-      if (component !== originator) {
-        component.receive(message);
-      }
-    });
+  notify(message: Message, sender: Component, receiver?: Component): void {
+    if (receiver) {
+      receiver.receive(message, sender);
+    } else {
+      this.users.forEach((user) => {
+        if (user !== sender) {
+          user.receive(message, sender);
+        }
+      });
+    }
   }
 }
 
 // Client
+const chatroom = new Chatroom();
 
-const mediator = new ConcreteMediator();
+const brad = new User('Brad', chatroom);
+const jane = new User('Jane', chatroom);
+const sarah = new User('Sarah', chatroom);
 
-const componentA = new ConcreteComponent('ComponentA', mediator);
-const componentB = new ConcreteComponent('ComponentB', mediator);
-const componentC = new ConcreteComponent('ComponentC', mediator);
+chatroom.register(brad);
+chatroom.register(jane);
+chatroom.register(sarah);
 
-mediator.add(componentA);
-mediator.add(componentB);
-mediator.add(componentC);
-
-componentA.notify('Data A');
-componentB.notify('Data B');
-componentC.notify('Data C');
+brad.send({ content: 'Hello Jane' }, jane);
+sarah.send({ content: 'Hello Brad, you are the best dev!' }, brad);
+jane.send({ content: 'Hello everyone!' });
 
 // Output
 
-// ComponentA: >>> Out >>> : Data A
-// ComponentB: <<< In <<< : Data A 
-// ComponentC: <<< In <<< : Data A 
-// ComponentB: >>> Out >>> : Data B 
-// ComponentA: <<< In <<< : Data B 
-// ComponentC: <<< In <<< : Data B 
-// ComponentC: >>> Out >>> : Data C 
-// ComponentA: <<< In <<< : Data C 
-// ComponentB: <<< In <<< : Data C
+// Brad to Jane: Hello Jane
+// Sarah to Brad: Hello Brad, you are the best dev! 
+// Jane to Brad: Hello everyone! 
+// Jane to Sarah: Hello everyone!
 ```
 
 ## Resources
 
 - [Mediator](https://refactoring.guru/design-patterns/mediator)
 - [Mediator Design Pattern](https://sbcode.net/typescript/mediator/)
+- [Mediator Design Pattern in JavaScript](https://javascript.plainenglish.io/mediator-design-pattern-in-javascript-83e20cc94664)
