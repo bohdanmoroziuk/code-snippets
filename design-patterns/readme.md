@@ -26,6 +26,7 @@
   - [Visitor](./behavioral/visitor.md)
   - [Observer](./behavioral/observer.md)
   - [Mediator](./behavioral/mediator.md)
+  - [Template Method](./behavioral/template-method.md)
 
 - Refactorings
 
