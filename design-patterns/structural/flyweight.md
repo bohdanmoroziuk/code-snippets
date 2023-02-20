@@ -135,3 +135,4 @@ console.log('UPhoneFlyweight count:', UPhoneFactory.size); // 2
 - [Flyweight](https://refactoring.guru/design-patterns/flyweight)
 - [Design Patterns: Flyweight Pattern in TypeScript](https://levelup.gitconnected.com/design-patterns-flyweight-pattern-in-typescript-539066d57b42)
 - [Flyweight Design Pattern](https://sbcode.net/typescript/flyweight/)
+- [Flyweight Design Pattern in PHP](https://medium.com/swlh/flyweight-design-pattern-in-php-edcda0486fb0)

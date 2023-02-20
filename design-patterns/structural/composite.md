@@ -153,3 +153,4 @@ root.ls();
 - [Composite pattern in TypeScript](https://www.jmalvarez.dev/posts/composite-pattern-typescript)
 - [Composite in TypeScript](https://www.devmaking.com/learn/design-patterns/composite-pattern/typescript/)
 - [Easy patterns: Composite](https://itnext.io/easy-patterns-composite-8b28aa1f158)
+- [What is the Composite Design Pattern?](https://medium.com/swlh/composite-908878748d0e)
