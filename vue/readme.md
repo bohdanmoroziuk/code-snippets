@@ -74,3 +74,7 @@
   - [Creating a Custom Tooltip Component in Vue](https://blog.boot.dev/javascript/custom-tooltip-component-in-vue/)
   - [Vue 3: using macros without "script setup"](https://medium.com/@madeofsun/vue-3-composition-api-writing-type-safe-components-without-script-setup-c7b5a9e8049f)
   - [How this pattern made me write reusable Vue components with little effort](https://dberri.com/container-presentational-pattern-in-vue/)
+
+- Libraries and frameworks
+
+  - [7 Useful Vue.js Libraries You Should Use in Your Next Project](https://javascript.plainenglish.io/7-useful-vue-js-libraries-you-should-use-in-your-next-project-174cf6439f31)
