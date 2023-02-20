@@ -5,6 +5,7 @@
   - [Builder](./creational/builder.md)
   - [Singleton](./creational/singleton.md)
   - [Prototype](./creational/prototype.md)
+  - [Factory Method](./creational/factory-method.md)
 
 - Structural
 
