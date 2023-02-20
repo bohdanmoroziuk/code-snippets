@@ -4,11 +4,18 @@
 
   - [Builder](./creational/builder.md)
   - [Singleton](./creational/singleton.md)
+  - [Prototype](./creational/prototype.md)
+  - [Factory Method](./creational/factory-method.md)
 
 - Structural
 
   - [Adapter](./structural/adapter.md)
   - [Proxy](./structural/proxy.md)
+  - [Bridge](./structural/bridge.md)
+  - [Facade](./structural/facade.md)
+  - [Decorator](./structural/decorator.md)
+  - [Flyweight](./structural/flyweight.md)
+  - [Composite](./structural/composite.md)
 
 - Behavioral
 
@@ -17,10 +24,15 @@
   - [Strategy](./behavioral/strategy.md)
   - [Memento](./behavioral/memento.md)
   - [State](./behavioral/state.md)
+  - [Visitor](./behavioral/visitor.md)
+  - [Observer](./behavioral/observer.md)
+  - [Mediator](./behavioral/mediator.md)
+  - [Template Method](./behavioral/template-method.md)
 
 - Refactorings
 
   - [Null Object](./refactorings/null-object.md)
+  - [Guard Clauses](./refactorings/guard-clauses.md)
 
 ## Resources
 
@@ -41,3 +53,4 @@
 - [9 Design Patterns Every Engineer Should Know](https://medium.com/frontend-canteen/9-design-patterns-every-engineer-should-know-f2423d36d468)
 - [Design Patterns in Java Tutorial](https://www.tutorialspoint.com/design_pattern/index.htm)
 - [Understanding Software Design Patterns: Series](https://www.carloscaballero.io/understanding-software-design-patterns-serie/)
+- [Creational Design Pattern in TypeScript](https://albertobasalo.medium.com/creational-patterns-in-typescript-fb5d57565b4e)
