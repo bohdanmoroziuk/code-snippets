@@ -29,6 +29,7 @@
   - [Observer](./behavioral/observer.md)
   - [Mediator](./behavioral/mediator.md)
   - [Template Method](./behavioral/template-method.md)
+  - [Chain of Responsibility](./behavioral/chain-of-responsibility.md)
 
 - Refactorings
 
