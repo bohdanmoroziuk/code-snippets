@@ -18,12 +18,12 @@ const sample = <T>(list: T[]): T => list[(Math.random() * list.length) | 0];
 const unique = (list: unknown[]) => [...new Set(list)];
 ```
 
-## compact
+## sift/compact
 
 Remove false values from an array
 
 ```typescript
-const compact = (list: unknown[]) => list.filter(Boolean);
+const sift = <T>(list: readonly T[]) => list.filter(Boolean) as NonNullable<T>[];
 ```
 
 ## safeSort
