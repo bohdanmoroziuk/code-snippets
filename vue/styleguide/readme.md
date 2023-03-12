@@ -130,3 +130,8 @@ How?
 - Add a README.md file to the component's module directory;
 - Within the README file, describe the functionality and the usage of the module. For a vue component
 its most useful to describe the custom attributes it supports as those are its API.
+
+## Resources
+
+- [Style Guide](https://vuejs.org/style-guide/)
+- [Vue.js Component Style Guide](https://github.com/pablohpsilva/vuejs-component-style-guide)
