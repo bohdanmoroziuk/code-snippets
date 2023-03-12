@@ -1,5 +1,7 @@
 # Comparator
 
+## Implementation
+
 ```typescript
 type PredicateFunction<T> = (a: T, b: T) => boolean;
 
@@ -12,7 +14,7 @@ const comparator = <T>(predicate: PredicateFunction<T>) => {
 };
 ```
 
-Usage
+## Usage
 
 ```typescript
 [5, 1, 2, 8].slice().sort(comparator((a, b) => a < b))
@@ -56,3 +58,7 @@ users.slice().sort(comparator((a, b) => a.age > b.age))
 //   }
 // ]
 ```
+
+## Resources
+
+- [Modernizing JavaScript Code: The Comparator Function](https://medium.com/the-non-traditional-developer/modernizing-javascript-code-the-comparator-function-d41f963830d7)
