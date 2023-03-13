@@ -1,6 +1,7 @@
 # Tips & Tricks
 
 - [computedEager](./computedEager.md)
+- [custom vModel](./custom-v-model.md)
 - [selectAll](./selectAll.md)
 
 ## Resources

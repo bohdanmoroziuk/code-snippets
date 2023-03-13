@@ -1,21 +1,37 @@
 # Task scripts
 
-- npm run dev
+## Start the app in development mode
 
-Starts a Node.js local development server.
+```bash
+npm run serve
+```
 
-- npm run build
+## Build the application for production
 
-Build assets for production.
+```bash
+npm run build
+```
 
-- npm run unit
+## Run unit tests
 
-Run unit tests in JSDOM with Jest.
+```bash
+npm run test:unit
+```
 
-- npm run e2e
+## Run e2e tests
 
-Run end-to-end tests with Nightwatch.
+```bash
+npm run test:e2e
+```
 
-- npm run lint
+## Run eslint and report any linting errors
 
-Runs eslint and reports any linting errors in your code.
+```bash
+npm run lint:report
+```
+
+## Run eslint and fix any linting errors
+
+```bash
+npm run lint:fix
+```

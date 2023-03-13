@@ -2,6 +2,7 @@
 
 - [Renderless Component](./renderless-component.md)
 - [State Provider](./state-provider/readme.md)
+- Smart/dumb components
 
 ## Resources
 
