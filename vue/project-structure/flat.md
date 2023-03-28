@@ -180,3 +180,4 @@ Contains e2e test related files.
 - [Flat File Tree with Base Directory](https://markus.oberlehner.net/blog/vue-project-directory-structure-keep-it-flat-or-group-by-domain/#flat-file-tree-with-base-directory)
 - [vuejs-templates/webpack](https://vuejs-templates.github.io/webpack/)
 - [vue-typescript](https://mmf-fe.github.io/vue-typescript/en/)
+- [How to Structure a Large Scale Vue.js Application](https://vueschool.io/articles/vuejs-tutorials/how-to-structure-a-large-scale-vue-js-application/)
