@@ -1,5 +1,9 @@
 # React
 
+- [Project structure](./project-structure/readme.md)
+- [Styleguide](./styleguide/readme.md)
+- [Documentation](./documentation/readme.md)
+
 ## Tips & tricks
 
 - [Storing state in the URL with React](https://pierrehedkvist.com/posts/react-state-url?slider=20&boolean=false)
