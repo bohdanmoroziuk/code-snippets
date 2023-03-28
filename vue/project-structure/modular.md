@@ -49,6 +49,10 @@ modules/
   └── index.ts
 ```
 
+## Templates
+
+- [vue3-starter-template](https://github.com/BinarCode/vue3-starter-template)
+
 ## Resources
 
 - [Group By Domain](https://markus.oberlehner.net/blog/vue-project-directory-structure-keep-it-flat-or-group-by-domain/#group-by-domain)

@@ -14,3 +14,4 @@ only specific component tree;
 ## Resources
 
 - [Should I Store This Data in Vuex – When Should I use Vuex?](https://markus.oberlehner.net/blog/should-i-store-this-data-in-vuex/)
+- [Application State Management with Vue 3](https://markus.oberlehner.net/blog/application-state-management-with-vue-3/#use-the-swr-cache-pattern)

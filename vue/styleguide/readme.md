@@ -1,5 +1,224 @@
 # Styleguide
 
+## Basic rules
+
+- Each component should be defined in its dedicated file
+- Single file components should be named in the PascalCase or kebab-case
+- Base components should start with the same prefix: `Base` or `V`
+- Keep components small and focused:
+
+  Each component should have a clear and specific purpose. Avoid creating components that are too large or that have multiple responsibilities.
+
+- Use props and events to communicate between components:
+
+  Use props to pass data from parent components to child components, and events to emit data from child components to parent components.
+
+- Use slots for flexibility:
+  
+  Use slots to allow the content of a component to be customized by the parent component.
+
+- With more than one attribute, all attributes should be on a new line:
+
+  ```vue
+  <button
+    class="button button--secondary"
+    type="button"
+  >
+    Confirm
+  </button>
+  ```
+
+- Always use double quotes `"` inside templates and single quotes `'` for all other JS/TS:
+
+- Default key should be provided if the prop is not required:
+
+  ```vue
+  interface Props {
+    autoHide?: boolean;
+  }
+
+  withDefaults(defineProps<Props>(), {
+    autoHide: false,
+  });
+  ```
+
+- Shorthand `@` is preferable over `v-on`:
+
+- Use shorthand for directives:
+
+  - `@` is short for `v-on`
+
+    ```vue
+    <form @submit.prevent="handleSubmit">
+      <!-- ... -->
+    </form>
+    ```
+
+  - `:` is short for `v-bind`
+  
+    ```vue
+    <app-header :auto-hide="false" />
+    ```
+  
+  - `#` is short for `v-slot`
+
+    ```vue
+    <v-input-email>
+      <template #error="{ errorMessage }">
+        <p class="text-negative">{{ errorMessage }}</p>
+      </template>
+    </v-input-email>
+    ```
+
+- Prefer self-closing component tags:
+
+  ```vue
+  <app-header />
+  ```
+
+- Block order in `.vue` file:
+
+  ```vue
+  <script setup lang="ts">
+    // ...
+  </script>
+
+  <template>
+    // ...
+  </template>
+
+  <style scoped>
+    // ...
+  </style>
+  ```
+
+## Naming
+
+- The component name should always consist of multiple words to avoid conflicts with existing or future HTML elements
+- Tightly coupled child components should be prefixed with their parent component’s name:
+
+  ```txt
+  TodoList
+  TodoListItem
+  ```
+
+- Component names should begin with the foremost top-level (usually general) words and end with the foremost specific:
+
+  ```txt
+  SearchWidget
+  SearchWidgetInput
+  SearchWidgetResultsList
+  ```
+
+- Use PascalCase or kebab-case for components:
+
+  ```vue
+  <div>
+    <AppHeader />
+    <slot />
+    <AppFooter />
+  </div>
+  ```
+
+- Use kebab-case  to provide props in templates.
+
+  ```vue
+  <app-header auto-hide />
+  ```
+
+- Use kebab-case for events:
+
+  ```vue
+  <template>
+    <popup-window @close-window="closePopup" />
+  </template>
+  ```
+
+- 
+
+- 
+
+- 
+
+- 
+
+## Code splitting
+
+- Use dynamic imports:
+
+  Use the dynamic `import()` syntax to load components or modules on demand when they are needed.
+  This allows you to split your code into smaller chunks that are only loaded when they are needed,
+  improving performance by reducing the initial load time of the application.
+
+- Use the Vue.js async component:
+
+  The Vue.js async component allows you to lazy load components on demand, reducing the initial load
+  time of your application.
+
+- Use the Vue.js router:
+
+  The Vue.js router allows you to define routes for your application and lazy load the components
+  associated with those routes. This means that components are only loaded when the route is accessed,
+  improving the performance of your application.
+
+## Linting and formatting
+
+- Use ESLint
+- Use Prettier
+- Configure your linting and formatting rules:
+
+  Configure your ESLint and Prettier rules to enforce the code style and consistency you want to achieve
+  in your Vue.js project.
+
+- Integrate linting and formatting into your development process:
+
+  Integrate your linting and formatting tools into your development process by adding them to your code
+  editor or build pipeline. This can help you catch errors and enforce consistency before code is committed
+  to your version control system.
+
+- Use a pre-commit hook:
+
+  Use a pre-commit hook to run your linting and formatting tools automatically before code is committed to
+  your version control system. This can help ensure that your code meets your team’s standards and prevents
+  errors from being committed to your repository.
+
+## Composition api
+
+- Use `reactive` for Object, Array, Map, Set
+
+- Use `ref` for String, Number, Boolean
+
+## Styling
+
+- Use scoped CSS:
+
+  It is a good idea to have general styles or frameworks linked in your App.vue without scope and to use
+  scoped CSS for everything else.
+
+- Use BEM:
+
+  Even if you scope your CSS, you should use BEM. BEM allows you to actually delete CSS with confidence
+  and guarantees your stylesheets’ health. Methodologies like BEM are an industry standard for a reason.
+
+## Documentation
+
+- Use JSDoc
+- Document your components:
+
+  When creating components, document their props, events, and slots.
+
+- Document your Vuex/Pinia stores:
+
+  If you’re using Vuex to manage the state of your Vue.js project, document your store by adding comments
+  that explain the purpose of each module, state, mutation, and action.
+
+- Write clear and concise comments
+
+- Use README files:
+
+  Write README files for each module, component, or feature in your Vue.js project. These files can provide
+  an overview of what the module or feature does and how to use it.
+
 ## Module based development
 
 Always construct your app out of small modules which do one thing and do it well.
@@ -135,3 +354,9 @@ its most useful to describe the custom attributes it supports as those are its A
 
 - [Style Guide](https://vuejs.org/style-guide/)
 - [Vue.js Component Style Guide](https://github.com/pablohpsilva/vuejs-component-style-guide)
+- [Good Ways To Organize Large Vue.js Project](https://medium.com/@nile.bits/good-ways-to-organize-large-vue-js-project-a38e557c9876)
+- [Building an application with Vue and TypeScript. Best practices, thoughts and recommendations.](https://stefan-bauer.online/building-an-application-with-vue-and-type-script-best-practices-thoughts-and-recommendations/)
+- [10 Mistakes to Avoid When Starting with Vue 3](https://fadamakis.com/10-mistakes-to-avoid-when-starting-with-vue-3-1d1ced8552ae)
+- [Vue.js style guide | GitLab](https://docs.gitlab.com/ee/development/fe_guide/style/vue.html)
+- [12 VueJS Best Practices for Pro Developers](https://learnvue.co/articles/vue-best-practices)
+- [Vue.js Best Practices: Here’s How To Craft Highly Modular Applications](https://www.bacancytechnology.com/blog/vue-js-best-practices)

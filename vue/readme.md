@@ -1,9 +1,11 @@
 # Vue
 
+- [Skills To Master](./skills-to-master/readme.md)
 - [Tech Stack](./tech-stack/readme.md)
 - [Project structure](./project-structure/readme.md)
 - [Documentation](./documentation/readme.md)
 - [API Layer](./api-layer/readme.md)
+- [Permissions](./permissions/readme.md)
 - [Patterns](./patterns/readme.md)
 - [i18n](./i18n/readme.md)
 - [Routing](./routing/readme.md)

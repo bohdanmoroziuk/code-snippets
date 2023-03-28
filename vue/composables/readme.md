@@ -6,6 +6,6 @@
 - [useFileDialog](./file-dialog.md)
 - [useInterval](./interval.md)
 - [useOnline](./online.md)
-- [useStateQueryParam](./state-query-params.md)
+- [useStateQueryParam](./state-query-param.md)
 - [useState](./state.md)
 - [useWindowSize](./window-size.md)
