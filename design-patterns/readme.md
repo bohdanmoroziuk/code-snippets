@@ -36,6 +36,10 @@
   - [Null Object](./refactorings/null-object.md)
   - [Guard Clauses](./refactorings/guard-clauses.md)
 
+- Other
+
+  - [Fluent Interface](./other/fluent-interface.md)
+
 ## Resources
 
 - [Refactoring.Guru](https://refactoring.guru/)
