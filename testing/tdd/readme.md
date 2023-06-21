@@ -133,6 +133,68 @@ quality and robustness.
 - As a team, review your tests and test practices to share effective techniques
 and catch bad habits.
 
+## Mocking
+
+Mocking is a technique that is often used in TDD to isolate the code being
+tested from its dependencies. By using mock objects in place of production
+data, developers can test the code’s functionality without affecting the real
+data.
+
+### Types of Mock Objects
+
+There are 5 main mock object types:
+
+1. **Fakes**: Fake objects are simple implementations of the actual objects
+they are replacing. But they do not have the same functionality as the real
+objects. They are typically used to stand in for real objects when they are not
+yet available or when their behavior is irrelevant to the test being run.
+2. **Dummies**: Dummy objects are used as placeholders in a test. But they are
+not used or exercised by the test. They are often used to satisfy method
+signatures or other requirements of the code being tested.
+3. **Stubs**: Stub objects provide predetermined responses to method calls
+during a test. They are mostly used to simulate the behavior of real objects
+when they are not yet available or when their behavior is not relevant to the
+test being run.
+4. **Spies**: Spy objects record their interactions with the code being tested.
+They can be used to verify that the code is interacting with the mock object in
+the usual way or to capture the arguments passed to the mock object for later
+analysis.
+5. **Mocks**: Mocks are another type of mock object used to verify the behavior
+of the tested code. They can be configured with specific expectations for how
+they should be used and can be used to confirm that the code being tested is
+interacting with the mock object in a standard way.
+
+### Best Practices for Mocking in TDD
+
+1. Create simple constructors
+
+    When writing unit tests, creating simple constructors for production
+    classes is important to make it easier to create mock objects.
+
+2. Create mock helper objects that throw runtime exceptions
+
+    Creating mock data for large classes or interfaces is a challenging task.
+    You need to cover each function to ensure all the functionalities work as
+    expected. The recommended way to address such a situation is to create a
+    special mock object for the interface, or class with implementations for
+    each method that throws a runtime exception.
+
+3. Use immutable objects
+
+    Immutable objects are very useful in data mocking since they do not change
+    state during the course of a test. This makes it predictable and easy to
+    test, as the same inputs will always produce the same outputs.
+
+4. Avoid tight coupling
+
+    You should always try to avoid strong dependencies between the test and the
+    mock data since it will make the test inflexible and difficult to maintain. 
+
+5. Reset mock objects between tests
+
+    If you do not reset the mock data between tests, it will directly affect the
+    next test’s outcome, resulting in unexpected behavior and test failures.
+
 ## Advantages and disadvantages
 
 ### Benefits
@@ -169,6 +231,7 @@ further cause more costs in maintenance or updating.
 - [Test-Driven Development: Guide for Beginners](https://www.codingdojo.com/blog/test-driven-development)
 - [TDD for beginners - Part 1](https://www.fabricgroup.com.au/blog/tdd-for-beginners-part-1)
 - [Test-Driven Development for beginners](https://womanonrails.com/tdd-basic)
+- [The Art of Mocking in TDD](https://blog.bitsrc.io/the-art-of-mocking-in-tdd-d81edf9f8f02)
 
 ## Courses
 
