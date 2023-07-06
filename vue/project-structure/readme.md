@@ -2,6 +2,7 @@
 
 - [Flat project structure](./flat.md)
 - [Modular project structure](./modular.md)
+- [Clean project structure](./clean.md)
 
 ## Resources
 
