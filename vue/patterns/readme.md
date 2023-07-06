@@ -2,7 +2,7 @@
 
 - [Renderless Component](./renderless-component.md)
 - [State Provider](./state-provider/readme.md)
-- Smart/dumb components
+- [Container/Presenter Pattern](./container-presenter-pattern.md)
 
 ## Resources
 
