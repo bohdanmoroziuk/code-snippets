@@ -99,9 +99,17 @@ entities.
 
 ### Services
 
+From a technical perspective, it can be anything: class, function, a cluster
+of functions, and an object with methods. The only rule: keep it away from
+“details”: frameworks, stores, UI, etc. The only dependency Service should
+have are Entities or other Services.
+From a conceptual point of view, the goal of services is to perform required
+business operations on Entities.
 There could be one service for each entity, for example, a BookmarkService
 would have all the logic for interacting with the Bookmark entity, like
 fetching, creating, editing, deleting.
+If you are familiar with the Repository-Service pattern, which is quite popular
+in the backend world, you may find a lot of similarities.
 
 ---
 
@@ -128,12 +136,25 @@ There should be one controller for each operation.
 
 This is the Vue component we know.
 
-## Resources
+## Sources
+
+- [Clean Architecture: Typescript and React](https://paulallies.medium.com/clean-architecture-typescript-and-react-8e509098abfe)
+- [Clean Architecture: TypeScript and React](https://codefoundation.co.za/clean-architecture-typescript-and-react)
+
+---
 
 - [Implementing a Clean Architecture Modular Application in Nuxt/Vue Typescript Part 1: Domain Layer](https://dirodriguezm.gitlab.io/nuxt-clean-architecture.html)
 - [Implementing a Clean Architecture Modular Application in Nuxt/Vue Typescript Part 2: Services](https://dirodriguezm.gitlab.io/nuxt-clean-architecture-part2.html)
 - [Implementing a Clean Architecture Modular Application in Nuxt/Vue Typescript Part 3: Vuex Store](https://dirodriguezm.gitlab.io/nuxt-clean-architecture-part3.html)
 - [Implementing a Clean Architecture Modular Application in Nuxt/Vue Typescript Part 4: UI Components](https://dirodriguezm.gitlab.io/nuxt-clean-architecture-part4.html)
+
+---
+
+- [Building an Enterprise Application with Vue](https://javascript.plainenglish.io/building-vue-enterprise-application-part-0-overture-6d41bea14236)
+- [Building Vue Enterprise Application: Part 1. Entities](https://levelup.gitconnected.com/building-vue-enterprise-application-part-1-entities-808077f3d2e7)
+- [Building Vue Enterprise Application: Part 2. Services](https://javascript.plainenglish.io/building-vue-enterprise-application-part-2-services-f7ec400190e7)
+- [Building Vue Enterprise Application: Part 3. The Store](https://itnext.io/building-vue-enterprise-application-part-3-the-store-dbda0e4bb117)
+- [Building Vue Enterprise Application: Part 4. UI components](https://itnext.io/building-vue-enterprise-application-part-4-ui-components-21a45b3067a4)
 
 ---
 
@@ -157,3 +178,5 @@ This is the Vue component we know.
 - [nuxt-clean-architecture](https://gitlab.com/dirodriguezm/nuxt-clean-architecture)
 - [hexagonal-architecture-frontend](https://github.com/juanm4/hexagonal-architecture-frontend)
 - [vue-clean-architecture](https://github.com/smotastic/vue-clean-architecture)
+- [vue-vuex-ts](https://github.com/soloschenko-grigoriy/vue-vuex-ts)
+- [clean-typescript-react](https://github.com/nanosoftonline/clean-typescript-react)
