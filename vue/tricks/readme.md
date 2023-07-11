@@ -3,6 +3,7 @@
 - [computedEager](./computedEager.md)
 - [custom vModel](./custom-v-model.md)
 - [selectAll](./selectAll.md)
+- [Using v-model with objects for custom components](./v-model-with-objects.md)
 
 ## Resources
 
@@ -14,3 +15,4 @@
 - [Creating a Custom Tooltip Component in Vue](https://blog.boot.dev/javascript/custom-tooltip-component-in-vue/)
 - [Vue 3: using macros without "script setup"](https://medium.com/@madeofsun/vue-3-composition-api-writing-type-safe-components-without-script-setup-c7b5a9e8049f)
 - [How this pattern made me write reusable Vue components with little effort](https://dberri.com/container-presentational-pattern-in-vue/)
+- [Vue.js “3x3”: a Mental Model for Building Fast](https://itnext.io/vue-js-3x3-a-mental-model-for-building-fast-8c362a886bf5)
