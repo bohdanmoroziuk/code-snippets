@@ -11,6 +11,10 @@ state to allow components to consume state directly;
 only specific component tree;
 5. Use state management library like **Vuex** or **Pinia**.
 
+## Stores
+
+- [useLoadingStore](./stores/loading.md)
+
 ## Resources
 
 - [Should I Store This Data in Vuex – When Should I use Vuex?](https://markus.oberlehner.net/blog/should-i-store-this-data-in-vuex/)
