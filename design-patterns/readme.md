@@ -39,6 +39,7 @@
 - Other
 
   - [Fluent Interface](./other/fluent-interface.md)
+  - [Repository](./other/repository.md)
 
 ## Resources
 
