@@ -28,9 +28,17 @@
   user-select: all;
 }
 
-.select-all::selection{
+.select-all::selection {
   background-color: crimson;
   color: white;
+}
+```
+
+## Disable selection of text
+
+```css
+.no-select {
+  user-select: none;
 }
 ```
 
@@ -80,6 +88,30 @@
 }
 ```
 
+## Truncate a single line text using ellipsis
+
+```css
+.truncate {
+  width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+```
+
+## Truncate text after multiple lines using line-clamp
+
+```css
+.truncate-multiple {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical; 
+  width: 250px;
+  overflow: hidden;
+}
+```
+
 ## Custom scrollbar
 
 The following example creates a thin (10px wide) scrollbar,
@@ -107,6 +139,36 @@ which has a grey track/bar color and a dark-grey (#888) handle:
 } 
 ```
 
-Resources
+## Solve the problem of image 5px spacing
+
+```css
+img {
+  display: block;
+}
+```
+
+## Style broken images
+
+```css
+img::before {
+  content: "Image not available";
+  display: block;
+  text-align: center;
+  /* Additional styles here */
+}
+```
+
+## Hide empty elements
+
+```css
+*:empty {
+  display: none;
+}
+```
+
+## Resources
 
 - [How TO - Custom Scrollbar](https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp)
+- [20+ CSS Tips and Tricks to Make You a Better Developer](https://fatfish.medium.com/20-css-tips-and-tricks-to-make-you-a-better-developer-f87fc0431700)
+- [2 Simple ways you can truncate text using CSS](https://medium.com/@kritikapattalam/2-simple-ways-you-can-truncate-text-using-css-64d1596baa36)
+- [15 Lesser Known CSS Tips and Tricks Every Web Developer Should Know](https://blog.devgenius.io/15-lesser-known-css-tips-and-tricks-every-web-developer-should-know-1caadb5258fb)
