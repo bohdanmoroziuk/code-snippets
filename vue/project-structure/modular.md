@@ -1,4 +1,4 @@
-# Domain-driven design
+# Modular project structure
 
 ## Structure
 
