@@ -1,61 +1,4 @@
-# Clean Architecture in Vue.js
-
-## Project structure
-
-See an example of a [project](https://github.com/yuzumi/booky) that implements
-the Clean Architecture approach.
-
-```txt
-booky/
-├── src/
-│   ├── modules/
-│   │   ├── bookmarks/
-│   │   │   ├── domain/
-│   │   │   │   ├── entities/
-│   │   │   │   │   ├── Bookmark.ts
-│   │   │   │   │   └── index.ts
-│   │   │   │   └── repositories/
-│   │   │   │       ├── BookmarkRepository.ts
-│   │   │   │       └── index.ts
-│   │   │   ├── infrastructure/
-│   │   │   │   ├── repositories/
-│   │   │   │   │   ├── HttpBookmarkRepository.ts
-│   │   │   │   │   └── index.ts
-│   │   │   ├── application/
-│   │   │   │   └── services/
-│   │   │   │       ├── BookmarkService.ts
-│   │   │   │       └── index.ts
-│   │   │   ├── presentation/
-│   │   │   │   ├── components/
-│   │   │   │   │   ├── BookmarkForm.vue
-│   │   │   │   │   ├── BookmarkList.vue
-│   │   │   │   │   ├── BookmarkListItem.vue
-│   │   │   │   │   └── index.ts
-│   │   │   │   ├── containers/
-│   │   │   │   ├── controllers/
-│   │   │   │   │   ├── useGetBookmarksController.ts
-│   │   │   │   │   ├── useGetBookmarkByIdController.ts
-│   │   │   │   │   ├── useUpdateBookmarkController.ts
-│   │   │   │   │   ├── useDeleteBookmarkController.ts
-│   │   │   │   │   └── index.ts
-│   │   │   │   ├── pages/
-│   │   │   │   │   ├── Bookmarks.vue
-│   │   │   │   │   ├── BookmarkUpdate.vue
-│   │   │   │   │   └── BookmarkCreate.vue
-│   │   │   │   ├── stores/
-│   │   │   │   │   ├── useBookmarksStore.ts
-│   │   │   │   │   └── index.ts
-│   │   │   │   └── routes.ts
-│   │   │   └── index.ts
-│   │   └── index.ts
-│   ├── App.vue
-│   └── main.ts
-└── test/
-    ├── unit
-    └── e2e
-```
-
-## Into
+# Clean Architecture in Vue
 
 Clean architecture is a design pattern that aims to separate application
 logic from user interface or external services. It does that by defining
@@ -63,6 +6,8 @@ layers in a circle, in which each layer can only interact with other layers
 towards the center of the circle.
 
 In Vue terms, the layers would be (from outer to inner) **Components + Pages + Controllers + Stores -> Services -> Entities <- Repositories**.
+
+![Diagram](./diagram.png)
 
 ## Domain
 
@@ -84,9 +29,9 @@ restrictions of objects in our application.
 
 This is an interface that defines all use cases and operations for an entity.
 
-## Infrastructure
+## Data
 
-The Infrastructure layer contains the data access logic.
+The Data layer contains the data access logic.
 
 ### Repositories
 
@@ -99,9 +44,17 @@ entities.
 
 ### Services
 
+From a technical perspective, it can be anything: class, function, a cluster
+of functions, and an object with methods. The only rule: keep it away from
+“details”: frameworks, stores, UI, etc. The only dependency Service should
+have are Entities or other Services.
+From a conceptual point of view, the goal of services is to perform required
+business operations on Entities.
 There could be one service for each entity, for example, a BookmarkService
 would have all the logic for interacting with the Bookmark entity, like
 fetching, creating, editing, deleting.
+If you are familiar with the Repository-Service pattern, which is quite popular
+in the backend world, you may find a lot of similarities.
 
 ---
 
@@ -110,8 +63,9 @@ fetching, creating, editing, deleting.
 
 ## Presentation
 
-The Presentation layer contains the user interface, the stores and controllers,
-this is mostly the Vue part of the app.
+The presentation layer is responsible for interacting with the user interface.
+It contains the user interface, the stores and controllers, this is mostly the
+Vue part of the app.
 
 ### Stores
 
@@ -128,12 +82,49 @@ There should be one controller for each operation.
 
 This is the Vue component we know.
 
-## Resources
+## Example
+
+See an example of a [project](https://github.com/yuzumi/booky) that implements
+the Clean Architecture approach.
+
+## Other examples
+
+- [vue-shopping-clean-architecture](https://github.com/thanhchungbtc/vue-shopping-clean-architecture)
+- [nuxt-clean-architecture](https://gitlab.com/dirodriguezm/nuxt-clean-architecture)
+- [hexagonal-architecture-frontend](https://github.com/juanm4/hexagonal-architecture-frontend)
+- [vue-clean-architecture](https://github.com/smotastic/vue-clean-architecture)
+- [vue-vuex-ts](https://github.com/soloschenko-grigoriy/vue-vuex-ts)
+- [clean-typescript-react](https://github.com/nanosoftonline/clean-typescript-react)
+- [flexible-counter-app](https://github.com/itshugota/flexible-counter-app)
+- [scalable-express-tutorial](https://github.com/csalazar94/scalable-express-tutorial)
+- [clean-mvvm-react](https://github.com/nanosoftonline/clean-mvvm-react)
+
+## Sources
+
+- [Clean Architecture: Typescript and React](https://paulallies.medium.com/clean-architecture-typescript-and-react-8e509098abfe)
+- [Clean Architecture: TypeScript and React](https://codefoundation.co.za/clean-architecture-typescript-and-react)
+- [A different approach to frontend architecture](https://dev.to/itshugo/a-different-approach-to-frontend-architecture-38d4)
+- [Vertical Slices of Clean Architecture](https://paulallies.medium.com/vertical-slices-of-clean-architecture-ee6db87490a3)
+- [The Life-changing (And Time-saving!) Magic Of Feature Focused Code Organization!](https://dev.to/jamesmh/the-life-changing-and-time-saving-magic-of-feature-focused-code-organization-1708)
+- [Building a Flexible and Scalable Node.js Backend with Express: A Step-by-Step Tutorial](https://medium.com/@csalazar94/building-a-flexible-and-scalable-node-js-backend-with-express-a-step-by-step-tutorial-5a8633335b48)
+- [Clean MVVM with React and React Hooks](https://paulallies.medium.com/clean-mvvm-with-react-and-react-hooks-ebc37b22542f)
+- [How to Implement Clean Architecture with Node.js](https://medium.com/@lujavascript/how-to-implement-clean-architecture-with-node-js-c2b3bbfd3c7f)
+- [A domain-driven Vue.js Architecture](https://medium.com/bauer-kirch/a-domain-driven-vue-js-architecture-77771c20f0da)
+
+---
 
 - [Implementing a Clean Architecture Modular Application in Nuxt/Vue Typescript Part 1: Domain Layer](https://dirodriguezm.gitlab.io/nuxt-clean-architecture.html)
 - [Implementing a Clean Architecture Modular Application in Nuxt/Vue Typescript Part 2: Services](https://dirodriguezm.gitlab.io/nuxt-clean-architecture-part2.html)
 - [Implementing a Clean Architecture Modular Application in Nuxt/Vue Typescript Part 3: Vuex Store](https://dirodriguezm.gitlab.io/nuxt-clean-architecture-part3.html)
 - [Implementing a Clean Architecture Modular Application in Nuxt/Vue Typescript Part 4: UI Components](https://dirodriguezm.gitlab.io/nuxt-clean-architecture-part4.html)
+
+---
+
+- [Building an Enterprise Application with Vue](https://javascript.plainenglish.io/building-vue-enterprise-application-part-0-overture-6d41bea14236)
+- [Building Vue Enterprise Application: Part 1. Entities](https://levelup.gitconnected.com/building-vue-enterprise-application-part-1-entities-808077f3d2e7)
+- [Building Vue Enterprise Application: Part 2. Services](https://javascript.plainenglish.io/building-vue-enterprise-application-part-2-services-f7ec400190e7)
+- [Building Vue Enterprise Application: Part 3. The Store](https://itnext.io/building-vue-enterprise-application-part-3-the-store-dbda0e4bb117)
+- [Building Vue Enterprise Application: Part 4. UI components](https://itnext.io/building-vue-enterprise-application-part-4-ui-components-21a45b3067a4)
 
 ---
 
@@ -149,11 +140,3 @@ This is the Vue component we know.
 - [How Clean Architecture enables McDonald’s to optimize market-specific needs and user experience](https://medium.com/mcdonalds-technical-blog/how-clean-architecture-enables-mcdonalds-to-optimize-market-specific-needs-and-user-experience-b31b8a0ad4f9)
 - [A Practical Approach to Clean Architecture in C# .NET](https://maherz.medium.com/a-practical-approach-to-clean-architecture-in-c-net-13fe27ea23b1)
 - [Laravel Domain Driven Design: A Comprehensive Guide](https://medium.com/@mianhaseeb41/laravel-domain-driven-design-a-comprehensive-guide-c8b12c7ad79a)
-
-
-## Examples
-
-- [vue-shopping-clean-architecture](https://github.com/thanhchungbtc/vue-shopping-clean-architecture)
-- [nuxt-clean-architecture](https://gitlab.com/dirodriguezm/nuxt-clean-architecture)
-- [hexagonal-architecture-frontend](https://github.com/juanm4/hexagonal-architecture-frontend)
-- [vue-clean-architecture](https://github.com/smotastic/vue-clean-architecture)

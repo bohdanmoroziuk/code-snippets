@@ -57,3 +57,4 @@ function getInsuranceDeductible(insurance) {
 - [Guard Clauses - How to Clean up Conditionals](https://blog.boot.dev/clean-code/guard-clauses/)
 - [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
 - [The bouncer pattern](https://mauriziopireddu.com/clean-code/the-bouncer-pattern)
+- [Replace Nested Conditional with Guard Clauses](https://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html)
