@@ -21,6 +21,18 @@ relevant to the business.
 This is a class or type definition that defines the data and domain
 restrictions of objects in our application.
 
+```typescript
+// src/modules/bookmarks/domain/entities/Bookmark.ts
+
+export interface Bookmark {
+  id: string;
+  name: string;
+  url: string;
+  createdAt: number;
+  updatedAt: number;
+}
+```
+
 ---
 
 - [Using TypeScript to map out your business domain](https://medium.com/@hayavuk/using-typescript-to-map-out-your-business-domain-69af4a8d109b)
@@ -28,6 +40,20 @@ restrictions of objects in our application.
 ### Repositories interfaces
 
 This is an interface that defines all use cases and operations for an entity.
+
+```typescript
+// src/modules/bookmarks/domain/repositories/BookmarkRepository.ts
+
+import { Bookmark } from 'src/modules/bookmarks/domain/entities';
+
+export interface BookmarkRepository {
+  getAll(): Promise<Bookmark[]>;
+  findById(id: string): Promise<Bookmark | undefined>;
+  add(bookmark: Bookmark): Promise<Bookmark>;
+  update(bookmark: Bookmark): Promise<Bookmark>;
+  delete(id: string): Promise<void>;
+}
+```
 
 ## Data
 
@@ -78,14 +104,49 @@ The controller is an element that is called from the page or container
 page or container.
 There should be one controller for each operation.
 
+```typescript
+// src/modules/bookmarks/presentation/controllers/useGetBookmarksController.ts
+
+import { useQuasar } from 'quasar';
+import { storeToRefs } from 'pinia';
+
+import { useBookmarksStore } from 'src/modules/bookmarks/presentation/stores';
+
+export const useGetBookmarksController = () => {
+  const quasar = useQuasar();
+
+  const bookmarksStore = useBookmarksStore();
+
+  const { bookmarks, totalBookmarks, hasBookmarks } = storeToRefs(bookmarksStore);
+
+  const getBookmarks = async () => {
+    try {
+      quasar.loading.show();
+      await bookmarksStore.getBookmarks();
+    } catch (error) {
+      quasar.notify({ type: 'negative', message: (error as Error).message });
+    } finally {
+      quasar.loading.hide();
+    }
+  };
+
+  return {
+    bookmarks,
+    totalBookmarks,
+    hasBookmarks,
+    getBookmarks,
+  };
+};
+```
+
 ### Components
 
 This is the Vue component we know.
 
 ## Example
 
-See an example of a [project](https://github.com/yuzumi/booky) that implements
-the Clean Architecture approach.
+See a full example of a [project](https://github.com/yuzumi/booky) that
+implements clean architecture approach.
 
 ## Other examples
 
