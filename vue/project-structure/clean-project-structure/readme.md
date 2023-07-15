@@ -98,6 +98,9 @@ the Clean Architecture approach.
 - [flexible-counter-app](https://github.com/itshugota/flexible-counter-app)
 - [scalable-express-tutorial](https://github.com/csalazar94/scalable-express-tutorial)
 - [clean-mvvm-react](https://github.com/nanosoftonline/clean-mvvm-react)
+- [clean-typescript-react](https://github.com/nanosoftonline/clean-typescript-react)
+- [clean-architecture](https://github.com/lulusir/clean-architecture)
+- [react-clean-architecture](https://github.com/eduardomoroni/react-clean-architecture)
 
 ## Sources
 
@@ -112,6 +115,8 @@ the Clean Architecture approach.
 - [How to Implement Clean Architecture with Node.js](https://medium.com/@lujavascript/how-to-implement-clean-architecture-with-node-js-c2b3bbfd3c7f)
 - [A domain-driven Vue.js Architecture](https://medium.com/bauer-kirch/a-domain-driven-vue-js-architecture-77771c20f0da)
 - [Improve React Component Maintainability with Layered Architecture](https://blog.bitsrc.io/improve-react-component-maintainability-with-layered-architecture-25e74ba86430)
+- [Clean Architecture in Node.js](https://medium.com/@ben.dev.io/clean-architecture-in-node-js-39c3358d46f3)
+- [Building a Clean Architecture Application with .NET Core: A Step-by-Step Guide](https://medium.com/@pantaanish/building-scalable-applications-with-clean-architecture-in-net-core-web-api-d5e00ad35764)
 
 ---
 
