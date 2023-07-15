@@ -101,6 +101,7 @@ the Clean Architecture approach.
 
 ## Sources
 
+- [The Benefits of Using Clean Architecture in Vue](https://www.mitrais.com/news-updates/the-benefits-of-using-clean-architecture-in-vue/)
 - [Clean Architecture: Typescript and React](https://paulallies.medium.com/clean-architecture-typescript-and-react-8e509098abfe)
 - [Clean Architecture: TypeScript and React](https://codefoundation.co.za/clean-architecture-typescript-and-react)
 - [A different approach to frontend architecture](https://dev.to/itshugo/a-different-approach-to-frontend-architecture-38d4)
@@ -110,6 +111,7 @@ the Clean Architecture approach.
 - [Clean MVVM with React and React Hooks](https://paulallies.medium.com/clean-mvvm-with-react-and-react-hooks-ebc37b22542f)
 - [How to Implement Clean Architecture with Node.js](https://medium.com/@lujavascript/how-to-implement-clean-architecture-with-node-js-c2b3bbfd3c7f)
 - [A domain-driven Vue.js Architecture](https://medium.com/bauer-kirch/a-domain-driven-vue-js-architecture-77771c20f0da)
+- [Improve React Component Maintainability with Layered Architecture](https://blog.bitsrc.io/improve-react-component-maintainability-with-layered-architecture-25e74ba86430)
 
 ---
 
