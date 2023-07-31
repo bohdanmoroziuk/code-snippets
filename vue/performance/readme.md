@@ -1,160 +1,267 @@
 # Performance
 
-## Optimize Rendering
+## Overview
 
-1. Minimize DOM Updates
+Vue is designed to be performant for most common use cases without much need for
+manual optimizations. However, there are always challenging scenarios where extra
+fine-tuning is needed.
 
-    1. Utilize Vue Reactivity System Effectively
+First, let's discuss the two major aspects of web performance:
 
-        By leveraging computed properties, watchers, and the v-if directive
-        wisely, you can ensure that only the necessary components and elements
-        are updated when data changes, reducing unnecessary DOM updates.
+- **Page Load Performance**: how fast the application shows content and becomes
+interactive on the initial visit. This is usually measured using web vital metrics
+like `Largest Contentful Paint (LCP)` and `First Input Delay (FID)`.
+- **Update Performance**: how fast the application updates in response to user input.
 
-    2.  Implement Efficient Component Re-rendering Strategies
+## Profiling Options
 
-        Utilize techniques like shouldComponentUpdate and the key attribute to
-        prevent re-rendering of components that haven't changed. 
+To improve performance, we need to first know how to measure it. There are a number
+of great tools that can help in this regard:
 
-2. Leverage Virtual DOM
+For profiling load performance of production deployments:
 
-    1. Use Vue Built-in Virtual DOM Diffing Algorithm
+- [PageSpeed Insights](https://pagespeed.web.dev/)
+- [WebPageTest](https://www.webpagetest.org/)
 
-        Make sure to structure your components in a way that allows Vue to
-        leverage its virtual DOM diffing algorithm effectively.
+For profiling performance during local development:
 
-    2. Explore the Benefits of Virtual DOM Libraries like `vue-virtual-scroller`
+- [Chrome DevTools Performance Panel](https://developer.chrome.com/docs/devtools/performance/)
+- [Vue DevTools Extension](https://vuejs.org/guide/scaling-up/tooling.html#browser-devtools)
 
-        By incorporating such libraries into your Vue.js application, you can
-        achieve blazing-fast rendering speeds, especially for resource-intensive
-        scenarios.
+## Page Load Optimizations 
 
-## Improve Data Handling
+### Choosing the Right Architecture
 
-1. Optimize Data Structures
+- SPA
+- SSR
+- SSG
 
-    1. Use Appropriate Data Structures for Efficient Querying and Manipulation
+### Bundle Size and Tree-shaking
 
-    2. Employ Caching Techniques for Frequently Accessed Data
+One of the most effective ways to improve page load performance is shipping
+smaller JavaScript bundles. Here are a few ways to reduce bundle size when
+using Vue:
 
-        Implement caching mechanisms to store frequently accessed data, reducing
-        the need for repetitive computations or expensive API calls. By keeping
-        your data readily available, you’ll speed up your application’s response
-        time and keep your users smiling.
+- Use a build step if possible.
+- Be cautious of size when introducing new dependencies!
+  - If using a build step, prefer dependencies that offer ES module formats and
+    are tree-shaking friendly.
+  - Check a dependency's size and evaluate whether it is worth the functionality
+    it provides.
+      - [bundlephobia](https://bundlephobia.com/)
+      - [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
+- If you are using Vue primarily for progressive enhancement and prefer to avoid
+a build step, consider using petite-vue (only 6kb) instead.
 
-2. Utilize Asynchronous Operations
+### Code Splitting nad Lazy Loading
 
-    1. Employ Async/Await or Promises for Non-blocking Code Execution
+As the name suggests lazy loading is a process of loading parts (chunks) of your
+application lazily. In other words — loading them only when we really need them.
+Code splitting is just a process of splitting the app into this lazily loaded
+chunks.
 
-        By freeing up the CPU to handle other tasks while awaiting responses,
-        your application will feel snappier than ever.
+- Dynamic imports
 
-    2. Implement Lazy Loading for Heavy Data or Resources
+  We can easily load some parts of our application lazily with webpack dynamic imports.
+  Let’s see how they work and how they differ from regular imports.
 
-        Load the essential parts first, and then fetch additional data or
-        resources on-demand.
+  ```ts
+  function loadLazy() {
+    return import('./lazy.js')
+  }
+  ```
 
-## Optimize Network Requests
+- Async components
 
-1. Reduce HTTP Requests
+  Which components should you load lazily? The answer to this question is trivial
+  and intuitive - everything that is not required on initial render.
 
-    1. Consolidate Multiple Requests into a Single Request
+  ```ts
+  import { defineAsyncComponent } from 'vue'
 
-        Reduce the number of HTTP requests by combining multiple smaller
-        requests into a single, efficient request. This reduces the overhead
-        of establishing multiple connections and minimizes the time spent
-        waiting for responses.
+  const Foo = defineAsyncComponent(() => import('./Foo.vue'))
+  ```
 
-    2. Utilize HTTP Caching Mechanisms for Static Assets
+- Route components
 
-        Don’t let static assets weigh you down! Leverage the power of HTTP
-        caching mechanisms to store static assets in the user’s browser. By
-        specifying proper cache headers, you can instruct the browser to fetch
-        assets from the cache instead of making redundant network requests.
+  For applications using Vue Router, it is strongly recommended to use lazy loading
+  for route components.
 
-2. Implement Intelligent Data Fetching
+  ```ts
+  const Home = () => import(/* webpackChunkName: "home" */ './Home.vue');
+  const About = () => import(/* webpackChunkName: "about" */ './About.vue');
+  const Contact = () => import(/* webpackChunkName: "contact" */ './Contact.vue');
 
-    1. Employ Pagination or Infinite Scrolling for Large Data Sets
+  const routes = [
+    { path: '/', name: 'home', component: Home },
+    { path: '/about', name: 'about', component: About },
+    { path: '/contact', name: 'contact', component: Contact }
+  ];
+  ```
 
-        Implement pagination or infinite scrolling techniques to fetch data in
-        smaller, manageable chunks. Instead of overwhelming the user with an
-        ocean of information, load data dynamically as they navigate or scroll.
+## Update Optimizations
 
-    2. Optimize API Calls with GraphQL or Efficient RESTful Endpoints
+### Props Stability 
 
-        Explore GraphQL, a powerful query language, to fetch precisely the data
-        you need, minimizing unnecessary data transfer. Alternatively, optimize
-        your RESTful endpoints by fine-tuning them to return only relevant data. 
+- In Vue, a child component only updates when at least one of its received props
+has changed.
+- In general, the idea is keeping the props passed to child components as stable
+as possible.
 
-## Performance Testing and Optimization
+  ```ts
+  <ListItem
+    v-for="item in list"
+    :id="item.id"
+    :active="item.id === activeId"
+  />
+  ```
 
-1. Measure and Identify Bottlenecks
+### v-once
 
-    1. Use Tools Like Chrome DevTools to Analyze Performance
+`v-once` is a built-in directive that can be used to render content that relies
+on runtime data but never needs to update.
 
-        By leveraging features like the Performance and Network tabs, you can
-        examine various performance metrics such as network requests, CPU
-        usage, and rendering performance. These metrics will help you
-        understand which areas of your application are causing slowdowns and
-        where optimizations are needed.
+### v-memo
+​
+`v-memo` is a built-in directive that can be used to conditionally skip the update
+of large sub-trees or v-for lists.
 
-    2. Identify Areas of Improvement Based on Profiling Data
+## General Optimizations
 
-        Profiling data obtained from tools like Chrome DevTools offers a
-        detailed view of how your application behaves during runtime. By
-        analyzing this data, you can identify specific functions, components,
-        or sections of code that are contributing to performance bottlenecks.
-        Look for areas with high execution times or excessive memory usage.
-        This information will guide you in making informed decisions about
-        which parts of your codebase require optimization to achieve
-        significant performance gains.
+The following tips affect both page load and update performance.
 
-1. Optimize Bundle Size
+### Virtualize Large Lists
 
-    1. Reduce Unnecessary Dependencies and Code
+One of the most common performance issues in all frontend applications is rendering
+large lists.
 
-        Take a closer look at the dependencies in your Vue.js application.
-        Are there any that are not essential to its core functionality?
-        Consider removing or replacing them with lighter alternatives.
-        Additionally, perform a thorough code review to identify and eliminate
-        any unused or redundant code.
+### Reduce Reactivity Overhead for Large Immutable Structures
 
-    2. Utilize Code Splitting and Lazy Loading for Better Resource Management
+Vue's reactivity system is deep by default. While this makes state management
+intuitive, it does create a certain level of overhead when the data size is
+large, because every property access triggers proxy traps that perform dependency
+tracking. 
 
-        By dynamically loading modules or components on-demand, you can avoid
-        loading unnecessary code upfront, significantly improving initial load
-        times.
+Vue does provide an escape hatch to opt-out of deep reactivity by using `shallowRef()`
+and `shallowReactive()`.
 
-## Harness the Power of Browser Capabilities
+### Avoid Unnecessary Component Abstractions
 
-1. Leverage Browser Caching
+Sometimes we may create renderless components or higher-order components for better
+abstraction or code organization. While there is nothing wrong with this, do keep
+in mind that component instances are much more expensive than plain DOM nodes, and
+creating too many of them due to abstraction patterns will incur performance costs.
 
-    1. Set Appropriate Cache Headers for Static Assets
+### Harness the Power of Browser Capabilities
 
-        Don’t let static assets go stale! By setting appropriate cache headers,
-        you can instruct the browser to cache these assets locally. 
+- Leverage Browser Caching
 
-    2. Utilize localStorage or IndexedDB for Client-Side Caching
+  - Set Appropriate Cache Headers for Static Assets
 
-        By utilizing features like localStorage or IndexedDB, you can cache
-        data on the user’s device.
+    Don’t let static assets go stale! By setting appropriate cache headers,
+    you can instruct the browser to cache these assets locally. 
 
-2. Explore Web Worker Usage
+  - Utilize localStorage or IndexedDB for Client-Side Caching
 
-    1. Offload Intensive Tasks to Web Workers for Improved Responsiveness
+    By utilizing features like localStorage or IndexedDB, you can cache
+    data on the user’s device.
 
-        Web workers allow you to run computationally intensive operations in
-        the background, freeing up the main thread for a smoother user
-        experience.
+- Explore Web Worker Usage
 
-    2.  Utilize Service Workers for Offline Caching and Faster Load Times
+  - Offload Intensive Tasks to Web Workers for Improved Responsiveness
 
-        Service workers enable you to cache your Vue.js application’s assets
-        and content, making them available even when the user is offline.
+    Web workers allow you to run computationally intensive operations in
+    the background, freeing up the main thread for a smoother user
+    experience.
+
+  - Utilize Service Workers for Offline Caching and Faster Load Times
+
+    Service workers enable you to cache your Vue.js application’s assets
+    and content, making them available even when the user is offline.
+
+### Optimize Network Requests
+
+- Reduce HTTP Requests
+
+  - Consolidate Multiple Requests into a Single Request
+
+    Reduce the number of HTTP requests by combining multiple smaller
+    requests into a single, efficient request. This reduces the overhead
+    of establishing multiple connections and minimizes the time spent
+    waiting for responses.
+
+  - Utilize HTTP Caching Mechanisms for Static Assets
+
+    Don’t let static assets weight you down! Leverage the power of HTTP
+    caching mechanisms to store static assets in the user’s browser. By
+    specifying proper cache headers, you can instruct the browser to fetch
+    assets from the cache instead of making redundant network requests.
+
+- Implement Intelligent Data Fetching
+
+  - Employ Pagination or Infinite Scrolling for Large Data Sets
+
+    Implement pagination or infinite scrolling techniques to fetch data in
+    smaller, manageable chunks. Instead of overwhelming the user with an
+    ocean of information, load data dynamically as they navigate or scroll.
+
+  - Optimize API Calls with GraphQL or Efficient RESTful Endpoints
+
+    Explore GraphQL, a powerful query language, to fetch precisely the data
+    you need, minimizing unnecessary data transfer. Alternatively, optimize
+    your RESTful endpoints by fine-tuning them to return only relevant data. 
+
+### Asset handling
+
+- Optimize your images.
+  
+  Make sure your images are properly sized and compressed, and serve responsive
+  images. Think about using next-gen formats like WebP.
+
+- Optimize font usage.
+
+  Only load the fonts you need, and make sure text is visible for users until
+  they are finished loading
+
+- Lazy-load images and videos. 
+
+  It makes sense to only load the resources that your users need at that moment.
+  Postpone loading images and videos that are off-screen at first, and lazy load
+  them later.
+
+- Preload/prefetch important assets.
+
+  Prioritize the fetching of critical assets – for example by preloading images
+  in your header or hero section so users see them faster.
+
+- Use caching so your users don't have to download the same assets multiple times.
+
+### Code performance
+
+- Check for memory leaks like event listeners that are active although you don’t
+need them, variables leaking into global scope, timers not being cleared...
+- Optimize event handling
+- Minimize reflow and repaint operations that calculate the position of each node
+and change their appearance.
+- Avoid unnecessary component updates/rendering loops. Update only what is needed!
 
 ## Resources
 
-- [Performance](https://vuejs.org/guide/best-practices/performance.html)
-- [Vuejs App Performance Optimization: Top Reasons](https://www.bacancytechnology.com/blog/vuejs-app-performance-optimization)
+- [Vue Performance](https://vuejs.org/guide/best-practices/performance.html)
 - [Vue.js Performance Guide](https://madewithvuejs.com/blog/vuejs-performance-guide)
-- [Vue.js Performance](https://vueschool.io/articles/series/vue-js-performance/)
+- [Vuejs App Performance Optimization: Top Reasons](https://www.bacancytechnology.com/blog/vuejs-app-performance-optimization)
 - [How to make Vue.js 3000 times faster](https://javascript.plainenglish.io/how-to-make-vue-js-3000-times-faster-826ee04a2491)
+
+---
+
+-  [Code Splitting With Vue.js And Webpack](https://vuejsdevelopers.com/2017/07/03/vue-js-code-splitting-webpack/)
+-  [3 Code Splitting Patterns For VueJS and Webpack](https://vuejsdevelopers.com/2017/07/08/vue-js-3-ways-code-splitting-webpack/)
+
+--- 
+
+-  [Lazy loading and code splitting in Vue.js](https://vueschool.io/articles/vuejs-tutorials/lazy-loading-and-code-splitting-in-vue-js/)
+-  [Vue.js Router Performance](https://vueschool.io/articles/vuejs-tutorials/vue-js-router-performance/)
+-  [Lazy Loading Individual Vue Components and Prefetching](https://vueschool.io/articles/vuejs-tutorials/lazy-loading-individual-vue-components-and-prefetching/)
+-  [Optimizing third-party libraries](https://vueschool.io/articles/vuejs-tutorials/vue-js-performance-optimizing-third-party-libraries/)
+-  [Mastering Browser Cache](https://vueschool.io/articles/vuejs-tutorials/vue-js-performance-mastering-cache/)
+-  [Nuxt SSR Optimizing Tips](https://vueschool.io/articles/vuejs-tutorials/nuxt-ssr-optimizing-tips/)
