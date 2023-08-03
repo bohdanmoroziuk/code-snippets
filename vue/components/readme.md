@@ -9,3 +9,4 @@
 - [SimpleJsonViewer](./simple-json-viewer.md)
 - [TreeMenu](./tree-menu.md)
 - [UnsavedChangesHandler](./unsaved-changes-handler.md)
+- [ErrorBoundary](./error-boundary.md)

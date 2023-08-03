@@ -41,3 +41,7 @@
   <option value="Internet Explorer">
 </datalist>
 ```
+
+## Resources
+
+- [24 Powerful HTML Attributes Every Senior Web Engineer Should Master!](https://javascript.plainenglish.io/24-powerful-html-attributes-every-senior-web-engineer-should-master-ad8a4df0776e)

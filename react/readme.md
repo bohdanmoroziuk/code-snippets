@@ -1,7 +1,9 @@
 # React
 
 - [Ecosystem](./ecosystem/readme.md)
+- [Project Architecture](./project-architecture/readme.md)
 - [Project structure](./project-structure/readme.md)
+- [Error Handling](./error-handling/readme.md)
 - [Styleguide](./styleguide/readme.md)
 - [Documentation](./documentation/readme.md)
 

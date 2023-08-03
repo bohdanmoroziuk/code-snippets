@@ -139,6 +139,33 @@ which has a grey track/bar color and a dark-grey (#888) handle:
 } 
 ```
 
+## Customize input placeholder
+
+```css
+input::placeholder {
+  color: red;
+  font-size: 1.2em;
+  font-style: italic;
+}
+```
+
+## Remove the arrow at the end of the input of type=”number”
+
+```css
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+```
+
+## Solve the problem that the iOS scroll bar is stuck
+
+```css
+html {
+  -webkit-overflow-scrolling: touch;
+}
+```
+
 ## Solve the problem of image 5px spacing
 
 ```css
@@ -166,9 +193,18 @@ img::before {
 }
 ```
 
+## Put the page in gray mode
+
+```css
+body {
+  filter: grayscale(1);
+}
+```
+
 ## Resources
 
 - [How TO - Custom Scrollbar](https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp)
 - [20+ CSS Tips and Tricks to Make You a Better Developer](https://fatfish.medium.com/20-css-tips-and-tricks-to-make-you-a-better-developer-f87fc0431700)
 - [2 Simple ways you can truncate text using CSS](https://medium.com/@kritikapattalam/2-simple-ways-you-can-truncate-text-using-css-64d1596baa36)
 - [15 Lesser Known CSS Tips and Tricks Every Web Developer Should Know](https://blog.devgenius.io/15-lesser-known-css-tips-and-tricks-every-web-developer-should-know-1caadb5258fb)
+- [12 Practical Advanced Front-End CSS Tips](https://javascript.plainenglish.io/12-practical-advanced-front-end-css-tips-ce592385f6ae)

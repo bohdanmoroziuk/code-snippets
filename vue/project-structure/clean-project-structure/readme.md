@@ -155,27 +155,18 @@ implements clean architecture approach.
 - [hexagonal-architecture-frontend](https://github.com/juanm4/hexagonal-architecture-frontend)
 - [vue-clean-architecture](https://github.com/smotastic/vue-clean-architecture)
 - [vue-vuex-ts](https://github.com/soloschenko-grigoriy/vue-vuex-ts)
-- [clean-typescript-react](https://github.com/nanosoftonline/clean-typescript-react)
-- [flexible-counter-app](https://github.com/itshugota/flexible-counter-app)
-- [scalable-express-tutorial](https://github.com/csalazar94/scalable-express-tutorial)
-- [clean-mvvm-react](https://github.com/nanosoftonline/clean-mvvm-react)
-- [clean-typescript-react](https://github.com/nanosoftonline/clean-typescript-react)
+- [scalable-express-tutorial](https://github.com/csalazar94/scalable-express-tutoria
 - [clean-architecture](https://github.com/lulusir/clean-architecture)
-- [react-clean-architecture](https://github.com/eduardomoroni/react-clean-architecture)
 
 ## Sources
 
 - [The Benefits of Using Clean Architecture in Vue](https://www.mitrais.com/news-updates/the-benefits-of-using-clean-architecture-in-vue/)
-- [Clean Architecture: Typescript and React](https://paulallies.medium.com/clean-architecture-typescript-and-react-8e509098abfe)
-- [Clean Architecture: TypeScript and React](https://codefoundation.co.za/clean-architecture-typescript-and-react)
 - [A different approach to frontend architecture](https://dev.to/itshugo/a-different-approach-to-frontend-architecture-38d4)
 - [Vertical Slices of Clean Architecture](https://paulallies.medium.com/vertical-slices-of-clean-architecture-ee6db87490a3)
 - [The Life-changing (And Time-saving!) Magic Of Feature Focused Code Organization!](https://dev.to/jamesmh/the-life-changing-and-time-saving-magic-of-feature-focused-code-organization-1708)
 - [Building a Flexible and Scalable Node.js Backend with Express: A Step-by-Step Tutorial](https://medium.com/@csalazar94/building-a-flexible-and-scalable-node-js-backend-with-express-a-step-by-step-tutorial-5a8633335b48)
-- [Clean MVVM with React and React Hooks](https://paulallies.medium.com/clean-mvvm-with-react-and-react-hooks-ebc37b22542f)
 - [How to Implement Clean Architecture with Node.js](https://medium.com/@lujavascript/how-to-implement-clean-architecture-with-node-js-c2b3bbfd3c7f)
 - [A domain-driven Vue.js Architecture](https://medium.com/bauer-kirch/a-domain-driven-vue-js-architecture-77771c20f0da)
-- [Improve React Component Maintainability with Layered Architecture](https://blog.bitsrc.io/improve-react-component-maintainability-with-layered-architecture-25e74ba86430)
 - [Clean Architecture in Node.js](https://medium.com/@ben.dev.io/clean-architecture-in-node-js-39c3358d46f3)
 - [Building a Clean Architecture Application with .NET Core: A Step-by-Step Guide](https://medium.com/@pantaanish/building-scalable-applications-with-clean-architecture-in-net-core-web-api-d5e00ad35764)
 

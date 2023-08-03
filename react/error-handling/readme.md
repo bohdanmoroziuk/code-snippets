@@ -2,30 +2,22 @@
 
 ## Component Level Error Handling
 
-### onErrorCaptured hook
+### Error Boundary Component
 
-To catch an error that is propagated from a descendent component, you can use
-the `onErrorCaptured` hook:
-
-```typescript
-onErrorCaptured((error: unknown) => {
-  // Handle the error
-})
-```
-
-### Error Boundaries
+Starting from React 16, you can create an error boundary component by defining
+a class component with a `componentDidCatch(error, errorInfo)` lifecycle method.
+The `componentDidCatch` method is triggered when an error is thrown by a
+descendant component, allowing you to handle the error and update the
+component's state accordingly.
 
 By defining an error boundary component, you can handle errors gracefully and
 present a fallback UI to the user.
-
-You can see an example of the implementation of the ErrorBoundary component
-[here](../components/error-boundary.md).
 
 ## Global Error Handling
 
 ### Window Event Listeners
 
-To handle errors that occur outside of Vue's component hierarchy, you can use
+To handle errors that occur outside of React's component hierarchy, you can use
 global error handlers by attaching event listeners to the `window` object.
 
 You can use the `window.addEventListener('error', (event: ErrorEvent) => {});`
@@ -50,25 +42,11 @@ window.addEventListener('unhandledrejection', (event: PromiseRejectionEvent) => 
 });
 ```
 
-### Vue Application Errors
-
-Assign a global handler for uncaught errors propagating from within the application.
-
-```typescript
-app.config.errorHandler = (
-  error: unknown,
-  instance: ComponentPublicInstance | null,
-  info: string
-) => {
-  // Handle the error
-}
-```
-
 ## Network Error Handling
 
 ### Handling Network Errors with Axios
 
-When working with network requests in a Vue application, you may encounter
+When working with network requests in a React application, you may encounter
 various types of errors, such as server errors, network connectivity issues, or
 unexpected response data. To handle network errors effectively, you can use a
 popular library like Axios.
@@ -131,37 +109,43 @@ axiosRetry(axios, {
 
 In an enterprise environment, it’s essential to log and monitor errors to
 ensure the smooth operation of your application. Sentry is a popular error
-tracking and monitoring service that can be easily integrated with a Vue
+tracking and monitoring service that can be easily integrated with a React
 application.
 
 - Install the Sentry SDK:
 
 ```bash
-npm install --save @sentry/vue
+npm install --save @sentry/react
 ```
 
 - Configure Sentry in your application’s entry file (e.g., main.ts):
 
 ```typescript
-import * as Sentry from '@sentry/vue';
+import * as Sentry from '@sentry/react';
 
 Sentry.init({
-  app,
   dsn: 'YOUR_SENTRY_DSN',
   integrations: [
     new Sentry.BrowserTracing({
-      routingInstrumentation: Sentry.vueRouterInstrumentation(router),
+      // See docs for support of different versions of variation of react router
+      // https://docs.sentry.io/platforms/javascript/guides/react/configuration/integrations/react-router/
+      routingInstrumentation: Sentry.reactRouterV6Instrumentation(
+        React.useEffect,
+        useLocation,
+        useNavigationType,
+        createRoutesFromChildren,
+        matchRoutes
+      ),
     }),
-    new Sentry.Replay(),
+    new Sentry.Replay()
   ],
 
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
 
   // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
-  tracePropagationTargets: ['localhost', /^https:\/\/yourserver\.io\/api/],
+  tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
 
   // Capture Replay for 10% of all sessions,
   // plus for 100% of sessions with an error
@@ -209,10 +193,6 @@ window.addEventListener('error', (event: ErrorEvent) => {
 window.addEventListener('unhandledrejection', (event: PromiseRejectionEvent) => {
   logError(event.reason);
 });
-
-app.config.errorHandler = (error: unknown) => {
-  logError(error);
-}
 ```
 
 Similarly, you can modify the Axios interceptor to log network errors:
@@ -232,5 +212,4 @@ axios.interceptors.response.use(
 
 ## Sources
 
-- [Error Handling in Vue3](https://medium.com/@Chris1993/error-handling-in-vue3-35959512c2cd)
 - [How to Handle Errors in an Enterprise React Application](https://asimzaidi.medium.com/how-to-handle-errors-in-an-enterprise-react-application-90efc6202539)
