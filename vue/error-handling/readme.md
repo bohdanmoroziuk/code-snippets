@@ -2,6 +2,17 @@
 
 ## Component Level Error Handling
 
+### onErrorCaptured hook
+
+To catch an error that is propagated from a descendent component, you can use
+the `onErrorCaptured` hook:
+
+```typescript
+onErrorCaptured((error: unknown) => {
+  // Handle the error
+})
+```
+
 ### Error Boundaries
 
 By defining an error boundary component, you can handle errors gracefully and
@@ -219,7 +230,7 @@ axios.interceptors.response.use(
 );
 ```
 
-## Resources
+## Sources
 
 - [Error Handling in Vue3](https://medium.com/@Chris1993/error-handling-in-vue3-35959512c2cd)
 - [How to Handle Errors in an Enterprise React Application](https://asimzaidi.medium.com/how-to-handle-errors-in-an-enterprise-react-application-90efc6202539)
