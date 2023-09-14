@@ -49,56 +49,107 @@ functions.
 ## Implementation
 
 ```typescript
-class Result<T, E> {
-  public readonly isSuccess: boolean;
-  private value?: T;
-  private error?: E;
+type Result<T, E = Error> =
+  | Ok<T, E>
+  | Err<T, E>;
 
-  private constructor(isSuccess: boolean, value?: T, error?: E) {
-    this.isSuccess = isSuccess;
+type Matchers<O, T, E = Error> = {
+  ok: (value: T) => O,
+  err: (error: E) => O,
+}
+
+class Ok<T, E = Error> {
+  private value: T;
+
+  constructor(value: T) {
     this.value = value;
-    this.error = error;
   }
 
-  static success<T>(value: T): Result<T, undefined> {
-    return new Result<T, undefined>(true, value);
+  isOk(): this is Ok<T, E> {
+    return true;
   }
 
-  static error<E>(error: E): Result<undefined, E> {
-    return new Result<undefined, E>(false, undefined, error);
+  isErr(): this is Err<T, E> {
+    return false;
   }
 
-  get isFailure(): boolean {
-    return !this.isSuccess;
-  }
-
-  getValue(): T | undefined {
+  getValue() {
     return this.value;
   }
 
-  getError(): E | undefined {
+  map<O>(f: (value: T) => O): Result<O, E> {
+    try {
+      return new Ok<O, E>(f(this.value));
+    } catch (error) {
+      return new Err<O, E>(error as E);
+    }
+  }
+
+  match<O>({ ok }: Matchers<O, T, E>) {
+    return ok(this.value);
+  }
+}
+
+class Err<T, E = Error> {
+  private error: E;
+
+  constructor(error: E) {
+    this.error = error;
+  }
+
+  isOk(): this is Ok<T, E> {
+    return false;
+  }
+
+  isErr(): this is Err<T, E> {
+    return true;
+  }
+
+  getErr() {
     return this.error;
   }
-}
 
-function divide(a: number, b: number) {
-  if (b === 0) {
-    return Result.error('Division by zero');
+  map<O>(_: (value: T) => O): Result<O, E> {
+    return new Err<O, E>(this.error);
   }
 
-  return Result.success(a / b);
+  match<O>({ err }: Matchers<O, T, E>) {
+    return err(this.error);
+  }
 }
 
-const result = divide(10, 0);
+const ok = <T, E = Error>(value: T) => new Ok<T, E>(value);
 
-if (result.isSuccess) {
-  console.log('Result:', result.getValue());
-} else {
-  console.log('Error:', result.getError())
-}
+const err = <T, E = Error>(error: E) => new Err<T, E>(error);
+
+const parseUnsignedInteger = (input: string): Result<number, Error> => {
+  const number = Number.parseInt(input);
+
+  if (Number.isNaN(number)) {
+    return err(new Error('Invalid input'));
+  }
+
+  if (number < 0) {
+    return err(new Error('Number is negative'));
+  }
+
+  return ok(number);
+};
+
+const port = parseUnsignedInteger('3000');
+
+port
+  .match({
+    ok(value: number) {
+      console.log('Port:', value);
+    },
+    err(error: Error) {
+      console.warn('Error:', error.message);
+    }
+  });
 
 // Output:
-// Error: Division by zero
+// Port: 3000
 ```
 
 ## Best Practices and Tips
@@ -124,10 +175,24 @@ and improve productivity.
 ## Libraries
 
 - [neverthrow](https://github.com/supermacro/neverthrow)
+- [ts-results](https://github.com/vultix/ts-results)
+- [result](https://github.com/badrap/result)
+- [ts-belt](https://github.com/mobily/ts-belt)
+- [rustic](https://github.com/franeklubi/rustic)
+- [pratica](https://github.com/rametta/pratica)
 - [oxide.ts](https://github.com/traverse1984/oxide.ts)
 - [true-myth](https://true-myth.js.org/index.html)
 
 ## Resources
 
-- [Understanding Result Pattern in TypeScript](https://medium.aegis-techno.fr/understanding-result-pattern-in-typescript-e82934cea096)
+- [Type-Safe Error Handling In TypeScript](https://www.codementor.io/@supermacro/type-safe-error-handling-in-typescript-1bp40rs502)
+- [A declarative approach to error handling in Typescript](https://kkalamarski.me/a-declarative-approach-to-error-handling-in-typescript)
+- [Railroad Programming in TypeScript](https://itnext.io/railroad-programming-in-typescript-21d69f486f6e)
+- [Simple Typescript Result Monad](https://thingsthatkeepmeupatnight.dev/posts/simple-typescript-result-monad/)
+- [Result type in TypeScript](https://ctidd.com/2018/typescript-result-type)
 - [Flexible Error Handling w/ the Result Class | Enterprise Node.js + TypeScript](https://khalilstemmler.com/articles/enterprise-typescript-nodejs/handling-errors-result-class/)
+- [TypeScript/Implement Rust-style Result](https://www.huy.rocks/everyday/02-14-2022-typescript-implement-rust-style-result)
+- [Error handling in Typescript](https://harfangk.dev/en/posts/2023-06-11-error-handling-in-typescript.html)
+- [Rust-like error handling in TypeScript](https://spaccatrosi.co.uk/blog/rust-like-typescript-error-handling/)
+- [Mimicing Rust's Result type in typescript](https://dev.to/duunitori/mimicing-rust-s-result-type-in-typescript-3pn1)
+- [Using Results in TypeScript](https://imhoff.blog/posts/using-results-in-typescript)
