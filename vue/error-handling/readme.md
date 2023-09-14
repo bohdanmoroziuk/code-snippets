@@ -234,3 +234,4 @@ axios.interceptors.response.use(
 
 - [Error Handling in Vue3](https://medium.com/@Chris1993/error-handling-in-vue3-35959512c2cd)
 - [How to Handle Errors in an Enterprise React Application](https://asimzaidi.medium.com/how-to-handle-errors-in-an-enterprise-react-application-90efc6202539)
+- [Frontend API Error Handling in Vue.js: Best Practices and Techniques](https://levelup.gitconnected.com/frontend-api-error-handling-in-vue-js-best-practices-and-techniques-4afa1fa7e6d7)

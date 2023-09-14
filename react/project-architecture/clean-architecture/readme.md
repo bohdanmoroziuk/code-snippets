@@ -76,6 +76,8 @@ src/
 - [Clean MVVM with React and React Hooks](https://paulallies.medium.com/clean-mvvm-with-react-and-react-hooks-ebc37b22542f)
 - [Improve React Component Maintainability with Layered Architecture](https://blog.bitsrc.io/improve-react-component-maintainability-with-layered-architecture-25e74ba86430)
 - [Architecting React Apps for Success: A Deep Dive into Clean Architecture](https://javascript.plainenglish.io/architecting-react-apps-for-success-a-deep-dive-into-clean-architecture-839b784fbe04)
+- [How to Create a Three-Layer Application with React Hooks](https://medium.com/dailyjs/how-to-create-a-three-layer-application-with-react-hooks-2efba9ba345f)
+- [Hexagonal-Inspired Architecture in React](https://alexkondov.com/hexagonal-inspired-architecture-in-react/)
 
 ---
 
