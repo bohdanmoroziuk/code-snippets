@@ -157,6 +157,10 @@ Here are some ways to maintain the effectiveness of clean code:
 By layering your code and following `The Dependency Rule`, you can create a system
 that is truly testable, with all the benefits it entails.
 
+## Examples
+
+- [ clean-architecture-express-contacts](https://github.com/nanosoftonline/clean-architecture-express-contacts)
+
 ## Resources
 
 - [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
@@ -175,3 +179,5 @@ that is truly testable, with all the benefits it entails.
 - [The Benefits of Using Clean Architecture in Vue](https://www.mitrais.com/news-updates/the-benefits-of-using-clean-architecture-in-vue/)
 - [101 Clean Code Architecture](https://medium.com/bento-tech-innovation/101-clean-code-architecture-651e2650bbe8)
 - [What is Clean Architecture? Do you need it?](https://isriramkumarm.medium.com/what-is-clean-architecture-do-you-need-it-fdc1060d6425)
+- [Understanding the Benefits of 3-Tier Architecture](https://medium.com/@kenslearningcurve/understanding-the-benefits-of-3-tier-architecture-7653f2225f5)
+- [Clean Architecture: TypeScript Express API](https://paulallies.medium.com/clean-architecture-typescript-express-api-b90846794998)

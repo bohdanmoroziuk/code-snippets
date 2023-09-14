@@ -40,6 +40,7 @@
 
   - [Fluent Interface](./other/fluent-interface.md)
   - [Repository](./other/repository.md)
+  - [Result](./other/result.md)
 
 ## Resources
 

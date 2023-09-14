@@ -4,6 +4,11 @@
 
 - [Vite](https://vitejs.dev/)
 
+## Scaffolding
+
+- [Create React App](https://create-react-app.dev/)
+- [Rekit](http://rekit.js.org/)
+
 ## SSR
 
 - [Next.js](https://nextjs.org/)
@@ -29,6 +34,12 @@
 - [Formik](https://formik.org/)
 - [React Hook Form](https://react-hook-form.com/)
 
+## Custom Hooks
+
+- [Ahooks](https://ahooks.js.org/)
+- [React Use](https://streamich.github.io/react-use/)
+- [useHooks](https://usehooks.com/)
+
 ## Testing
 
 - [Vitest](https://vitest.dev/)
@@ -47,6 +58,11 @@
 - [Mantine UI](https://ui.mantine.dev/)
 - [Ant Design](https://ant.design/)
 - [Chakra UI](https://chakra-ui.com/)
+
+## Internationalization
+
+- [React Intl](https://formatjs.io/docs/react-intl/)
+- [React-i18next](https://react.i18next.com/)
 
 ## Animation
 
@@ -73,11 +89,21 @@
 - [React Developer Tools](https://react.dev/learn/react-developer-tools)
 - [Redux DevTools](https://github.com/reduxjs/redux-devtools)
 - [Testing Playground](https://testing-playground.com/)
+- [Why Did You Render](https://github.com/welldone-software/why-did-you-render)
+
+## SEO
+
+- [React Helmet](https://github.com/nfl/react-helmet)
+
+## IDE
+
+- [Reactide](https://github.com/reactide/reactide)
 
 ## Documentation
 
 - [Docusaurus](https://docusaurus.io/)
 - [Nextra](https://nextra.site/)
+- [React Styleguidist](https://react-styleguidist.js.org/)
 
 ## Component development environment 
 
@@ -107,3 +133,4 @@
 ## Sources
 
 - [The React Ecosystem in 2023](https://www.youtube.com/watch?v=6j9tnGMbm2c)
+- [Awesome React component library](https://medium.com/@Choco23/awesome-react-component-library-9e72fca7c17f)
