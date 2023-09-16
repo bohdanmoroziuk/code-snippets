@@ -1,8 +1,12 @@
 # The Vue Ecosystem in 2023
 
-## Build tool
+## Build Tool
 
 - [Vite](https://vitejs.dev/)
+
+## Project Scaffolding Tool
+
+- [create-vue](https://github.com/vuejs/create-vue)
 
 ## SSR
 
