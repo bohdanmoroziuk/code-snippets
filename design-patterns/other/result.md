@@ -48,6 +48,8 @@ functions.
 
 ## Implementation
 
+### The Class-Based Result
+
 ```typescript
 type Result<T, E = Error> =
   | Ok<T, E>
@@ -152,6 +154,99 @@ port
 // Port: 3000
 ```
 
+### The Function-Based Result
+
+```typescript
+import { pipe } from 'lodash/fp';
+
+interface Ok<T> {
+  ok: true;
+  value: T;
+}
+
+interface Err<E = Error> {
+  ok: false;
+  error: E;
+}
+
+type Result<T, E = Error> =
+  | Ok<T>
+  | Err<E>;
+
+interface Matchers<T, E, R1, R2> {
+  ok: (value: T) => R1,
+  err: (error: E) => R2,
+}
+
+const ok = <T>(value: T): Ok<T> => ({
+  ok: true,
+  value,
+});
+
+const err = <E = Error>(error: E): Err<E> => ({
+  ok: false,
+  error,
+});
+
+const isOk = <T, E>(result: Result<T, E>): result is Ok<T> => result.ok;
+
+const isErr = <T, E>(result: Result<T, E>): result is Err<E> => !result.ok;
+
+const wrap = <T, E, R>(f: (value: T) => R) => (result: Result<T, E>): Result<R, E> => {
+  try {
+    return isOk(result)
+      ? ok(f(result.value))
+      : result
+  } catch (error) {
+    return err(error as E);
+  }
+};
+
+const match = <T, E, R1, R2>(matchers: Matchers<T, E, R1, R2>) => (result: Result<T, E>) => (
+  isOk(result)
+    ? matchers.ok(result.value)
+    : matchers.err(result.error)
+);
+
+const encase = <T, E, A extends unknown[]>(f: (...args: A) => T) => (...args: A): Result<T, E> => {
+  try {
+    return ok(f(...args));
+  } catch (error) {
+    return err(error as E);
+  }
+};
+
+interface User {
+  name: string;
+}
+
+const parseJSON = encase<User, Error, [text: string]>(JSON.parse);
+
+const userString = JSON.stringify({ name: 'John Doe' });
+
+const getName = (user: User) => user.name;
+
+const printUserName = (name: string) => {
+  console.log(name);
+};
+
+const printErrorMessage = (error: Error) => {
+  console.log(error.message);
+};
+
+pipe(
+  parseJSON,
+  wrap(getName),
+  match({
+    ok: printUserName,
+    err: printErrorMessage,
+  }),
+)(userString);
+
+// Output:
+// John Doe
+```
+
 ## Best Practices and Tips
 
 Here are some key recommendations:
@@ -196,3 +291,4 @@ and improve productivity.
 - [Rust-like error handling in TypeScript](https://spaccatrosi.co.uk/blog/rust-like-typescript-error-handling/)
 - [Mimicing Rust's Result type in typescript](https://dev.to/duunitori/mimicing-rust-s-result-type-in-typescript-3pn1)
 - [Using Results in TypeScript](https://imhoff.blog/posts/using-results-in-typescript)
+- [Cleaner Exception Handling in JavaScript](https://paulallies.medium.com/functional-exception-handling-in-javascript-with-the-either-monad-3fb596c73912)
