@@ -18,21 +18,19 @@
 - [React Router](https://reactrouter.com/en/main)
 - [TanStack Router](https://tanstack.com/router/v1)
 
-## Client State Management
+## State Management
+
+### Client-side state managers
 
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [Zustand](https://zustand-demo.pmnd.rs/)
 
-## Server State Management
+### Data fetching/Async-data management libraries
 
 - [TanStack Query](https://tanstack.com/query/latest)
-- [Redux Toolkit Query](https://redux-toolkit.js.org/)
+- [RTK Query](https://redux-toolkit.js.org/)
+- [SWR](https://swr.vercel.app/)
 - [Apollo Client](https://www.apollographql.com/docs/react/)
-
-## Form Handling
-
-- [Formik](https://formik.org/)
-- [React Hook Form](https://react-hook-form.com/)
 
 ## Custom Hooks
 
@@ -48,7 +46,14 @@
 
 ## Styling
 
+### CSS based
+
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [CSS Modules](https://github.com/css-modules/css-modules)
+
+### CSS in JS based
+
 - [Styled Components](https://styled-components.com/)
 - [Emotion](https://emotion.sh/docs/introduction)
 
@@ -59,30 +64,51 @@
 - [Ant Design](https://ant.design/)
 - [Chakra UI](https://chakra-ui.com/)
 
-## Internationalization
+## Essential UI helpers
 
-- [React Intl](https://formatjs.io/docs/react-intl/)
-- [React-i18next](https://react.i18next.com/)
+### Tables
 
-## Animation
+- [TanStack Table](https://tanstack.com/table/v8)
+- [material-table](https://material-table.com/#/)
 
-- [react-spring](https://www.react-spring.dev/)
-- [Framer Motion](https://www.framer.com/motion/)
+### Form Handling
 
-## Data Visualization
+- [Formik](https://formik.org/)
+- [React Hook Form](https://react-hook-form.com/)
+
+### Data Visualization
 
 - [Victory](https://formidable.com/open-source/victory/)
 - [react-chartjs-2](https://react-chartjs-2.js.org/)
 - [Recharts](https://recharts.org/en-US/)
 
-## Table
+### Animation
 
-- [TanStack Table](https://tanstack.com/table/v8)
+- [react-spring](https://www.react-spring.dev/)
+- [Framer Motion](https://www.framer.com/motion/)
 
-## Internalization
+### Drag & drop functionality 
 
-- [react-i18next](https://react.i18next.com/)
-- [Format.JS](https://formatjs.io/)
+- [dnd-kit](https://dndkit.com/)
+
+### Mics
+
+- [libreact](https://github.com/streamich/libreact)
+
+### File uploads 
+
+- [react-dropzone](https://react-dropzone.js.org/)
+
+## GraphQL
+
+- [Apollo Client](https://www.apollographql.com/docs/react/)
+- [Relay](https://relay.dev/)
+- [urql](https://formidable.com/open-source/urql/)
+
+## Internationalization
+
+- [React Intl](https://formatjs.io/docs/react-intl/)
+- [React-i18next](https://react.i18next.com/)
 
 ## DevTools
 
@@ -117,14 +143,6 @@
 
 - [React Native](https://reactnative.dev/)
 
-## Drag & drop functionality 
-
-- [dnd-kit](https://dndkit.com/)
-
-## File uploads 
-
-- [react-dropzone](https://react-dropzone.js.org/)
-
 ## Authentication 
 
 - [Firebase](https://firebase.google.com/) 
@@ -134,3 +152,4 @@
 
 - [The React Ecosystem in 2023](https://www.youtube.com/watch?v=6j9tnGMbm2c)
 - [Awesome React component library](https://medium.com/@Choco23/awesome-react-component-library-9e72fca7c17f)
+- [React | Perfect tools for the perfect use cases](https://medium.com/@krtirtho/reactjs-perfect-tools-%EF%B8%8F-9b6f86d69a1b)
