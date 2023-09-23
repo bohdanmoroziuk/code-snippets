@@ -8,6 +8,10 @@
 
 - [create-vue](https://github.com/vuejs/create-vue)
 
+## IDE
+
+- [Vue Designer](https://vuedesigner.com/)
+
 ## SSR
 
 - [Nuxt](https://nuxt.com/)
