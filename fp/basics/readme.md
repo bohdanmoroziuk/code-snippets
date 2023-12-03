@@ -166,6 +166,41 @@ const numbers = [1, 2, 3, 4, 5];
 const squares = numbers.map(x => x * x);
 ```
 
+### Functors
+
+Often keeping unmodifiable is difficult to maintain. The pattern of wrapping
+data into a container comes to the rescue. It secures the values so that
+handling them is safe with the exclusion of side effects.
+
+It has no complex logic. Its main task is to wrap the context and perform the
+functions it receives from the outside on them. Each time the value changes, a
+new container instance is repackaged and returned. When calling the map method,
+which takes a specific action, it returns a new container instance with the
+value returned by the passed function, while maintaining the non-modifiable
+principle.
+
+```javascript
+const Functor = value => ({
+  map: fn => Functor(fn(value)),
+  chain: fn => fn(value),
+  of: () => value
+});
+```
+
+- **map** - useful when you want to change the state of a value in a container,
+but don't want to return it yet.
+- **chain** - used if you want to pass a value to a function without modifying
+the container state. Usually at the end of map calls.
+- **of** - return current value;
+
+### Monads
+
+Sometimes, in addition to the functions that trigger the new state of the
+value, you need additional logic hidden in the container. This is where monad
+comes in handy, as it is an extension of **functor**. It can, for example, decide
+what should happen when the value has a certain value or what path the next
+actions are to take.
+
 ## Resources
 
 - [A Gentle Introduction To Functional Programming](https://levelup.gitconnected.com/a-gentle-introduction-to-functional-programming-f20df9ff2e2d)
@@ -174,3 +209,6 @@ const squares = numbers.map(x => x * x);
 - [Functional Programming - Introduction](https://www.tutorialspoint.com/functional_programming/functional_programming_introduction.htm)
 - [An introduction to functional programming in JavaScript](https://opensource.com/article/17/6/functional-javascript)
 - [Function composition in JavaScript](https://www.educative.io/answers/function-composition-in-javascript)
+- [Functional Programming in JavaScript Part 1 – Introduction](https://thecodest.co/blog/power-of-functional-programming-in-javascript-part-1-introduction/)
+- [Functional programming in JavaScript Part 2 - Combinators](https://thecodest.co/blog/power-of-functional-programming-in-javascript-part-2-combinators/)
+- [Functional programming in JavaScript Part 3 - Functor & Monad Maybe](https://thecodest.co/blog/power-of-functional-programming-in-javascript-part-3-functor-monad-maybe/)
