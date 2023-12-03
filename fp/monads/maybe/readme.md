@@ -77,6 +77,10 @@ const result = Maybe
 console.log(result); // 13
 ```
 
+## Third-party solutions
+
+- [purify-ts/Maybe](https://gigobyte.github.io/purify/adts/Maybe)
+
 ## Resources
 
 - [The Power of Maybe in TypeScript](https://medium.com/@travisWaithMair/the-power-of-maybe-in-typescript-c51d07bbe352)

@@ -66,6 +66,14 @@ const result2 = Either
 console.log(result2._value); // Error: Invalid input
 ```
 
+## Third-party solutions
+
+- [purify-ts/Either](https://gigobyte.github.io/purify/adts/Either)
+
 ## Resources
 
 - [Nest.JS | Monads -> Either](https://nodeteam.medium.com/nest-js-monads-either-c077e1337469)
+- [Either Monad — A functional approach to Error handling in JS](https://itnext.io/either-monad-a-functional-approach-to-error-handling-in-js-ffdc2917ab2)
+- [Promise + Either Monad in TypeScript](https://nikolay-vaklev.medium.com/promise-either-monad-in-javascript-5ad152395312)
+- [Enhancing TypeScript: Implementing Robust Error Handling with Result and Option](https://dev.to/brunoalmeidakotesky/enhancing-typescript-implementing-robust-error-handling-with-result-and-option-o5j)
+- [JavaScript Data Structures: Either](https://medium.com/swlh/javascript-data-structures-either-c835b952f305)
