@@ -292,3 +292,8 @@ and improve productivity.
 - [Mimicing Rust's Result type in typescript](https://dev.to/duunitori/mimicing-rust-s-result-type-in-typescript-3pn1)
 - [Using Results in TypeScript](https://imhoff.blog/posts/using-results-in-typescript)
 - [Cleaner Exception Handling in JavaScript](https://paulallies.medium.com/functional-exception-handling-in-javascript-with-the-either-monad-3fb596c73912)
+- [Stop Using Try Catch and Use this Instead](https://javascript.plainenglish.io/stop-using-try-catch-and-use-this-instead-2742b51cf97b)
+- [Try/Catch Considered Harmful](https://betterprogramming.pub/try-catch-considered-harmful-4238ddd7cd3c)
+- [TypeScript With Go and Rust Errors? No Try/Catch? Heresy](https://betterprogramming.pub/typescript-with-go-rust-errors-no-try-catch-heresy-da0e43ce5f78)
+- [Typescript for better error handling](https://medium.com/inspiredbrilliance/typescript-for-better-error-handling-241e086c612e)
+- [TypeScript Error Handling: A Closer Look into Custom Error Objects](https://medium.com/stackademic/typescript-error-handling-a-closer-look-into-custom-error-objects-3936bea74a1c)
